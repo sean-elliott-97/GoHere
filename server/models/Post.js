@@ -6,7 +6,7 @@ const postSchema = new Schema(
   {
     postText: {
       type: String,
-      required: 'You need to leave a thought!',
+      required: 'You need to leave a post!',
       minlength: 1,
       maxlength: 280
     },

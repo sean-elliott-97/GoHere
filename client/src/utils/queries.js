@@ -26,7 +26,7 @@ export const QUERY_POST = gql`
       createdAt
       username
       replyCount
-      reply {
+      replies {
         _id
         createdAt
         username
