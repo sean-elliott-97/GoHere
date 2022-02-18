@@ -12,6 +12,7 @@ type User {
   friendCount: Int
   posts: [Post]
   friends: [User]
+  savedTrips: [User]
 }
 
 type Post {
@@ -48,6 +49,7 @@ type Mutation {
   addPost(location: String!, cost: Int!, pointsOfInterest: String!, transport: String!, extra: String!): Post
   addReply(postId: ID!, replyBody: String!): Post
   addFriend(friendId: ID!): User
+  saveTrip(postId: ID!): User
 }
 
 type Auth {

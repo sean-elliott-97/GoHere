@@ -38,8 +38,30 @@ export const ADD_FRIEND = gql`
   }
 `;
 
+export const SAVE_TRIP = gql`
+  mutation saveTrip($id: ID!) {
+    saveTrip(postId: $id) {
+      _id
+        location
+        cost
+        pointsOfInterest
+        transport
+        extra
+      savedTripsCount
+      savedTrips {
+        _id
+        location
+        cost
+        pointsOfInterest
+        transport
+        extra
+      }
+    }
+  }
+`;
+
 export const ADD_POST = gql`
-  mutation addPost($location: String!, $cost: Int! $pointsOfInterest: String!, $transport: String!, $extra: String!) {
+  mutation addPost($location: String!, $cost: Int!, $pointsOfInterest: String!, $transport: String!, $extra: String!) {
     addPost(location: $location, cost: $cost, pointsOfInterest: $pointsOfInterest, transport: $transport, extra: $extra) {
       _id
       location

@@ -31,6 +31,12 @@ const userSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: 'User'
       }
+    ],
+    savedTrips: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }
     ]
   },
   {
@@ -57,6 +63,10 @@ userSchema.methods.isCorrectPassword = async function(password) {
 
 userSchema.virtual('friendCount').get(function() {
   return this.friends.length;
+});
+
+userSchema.virtual('savedTripCount').get(function() {
+  return this.savedTrips.length;
 });
 
 const User = model('User', userSchema);

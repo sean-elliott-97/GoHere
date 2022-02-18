@@ -28,9 +28,9 @@ const postSchema = new Schema(
       minlength: 1,
       maxlength: 280
     },
-    transport: {
+    extra: {
       type: String,
-      required: 'Transportation required',
+      required: 'Additional required',
       minlength: 1,
       maxlength: 280
     },

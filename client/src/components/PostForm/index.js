@@ -63,7 +63,7 @@ const PostForm = () => {
 
       const handleChange4 = event => {
         if (event.target.value.length <= 280) {
-          setText4(event.target.value);
+          setText4(parseInt(event.target.value));
         
           setCharacterCount(event.target.value.length);
         }
@@ -85,6 +85,7 @@ const PostForm = () => {
         try {
           // add post to database
           await addPost({
+           
             variables: { location, cost, pointsOfInterest, transport, extra }
         
           });
@@ -92,6 +93,10 @@ const PostForm = () => {
       
           // clear form value
           setText('');
+          setText2('');
+          setText3('');
+          setText4('');
+          setText5('');
           setCharacterCount(0);
         } catch (e) {
           console.error(e);
@@ -115,7 +120,8 @@ const PostForm = () => {
       ></textarea>
       <input
        placeholder="cost?"
-       value={cost}     
+       value={cost} 
+       type="number"    
        className="form-input col-12 col-md-9"
        onChange={handleChange4}
       ></input>

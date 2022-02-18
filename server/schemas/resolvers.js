@@ -9,7 +9,8 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
           .populate('posts')
-          .populate('friends');
+          .populate('friends', 'savedTrips');
+          
     
         return userData;
       }
@@ -97,6 +98,19 @@ const resolvers = {
           { $addToSet: { friends: friendId } },
           { new: true }
         ).populate('friends');
+    
+        return updatedUser;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    saveTrip: async (parent, { postId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.post._id },
+          { $addToSet: { savedTrips: postId } },
+          { new: true }
+        ).populate('savedTrips');
     
         return updatedUser;
       }

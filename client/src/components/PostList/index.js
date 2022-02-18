@@ -1,10 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { useMutation } from '@apollo/client';
+
+
+import { SAVE_TRIP } from '../../utils/mutations';
+
+
+
 const PostList = ({ posts, title }) => {
   if (!posts.length) {
     return <h3>No trips posted..</h3>;
   }
+
+
+  const [saveTrip] = useMutation(SAVE_TRIP);
+
+  
+  const handleClick = async () => {
+    try {
+      await saveTrip({
+        variables: { id: posts._id }
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <div>
@@ -33,6 +54,9 @@ const PostList = ({ posts, title }) => {
                 Replies: {post.replyCount} || Click to{' '}
                 {post.replyCount ? 'see' : 'start'} the discussion!
                 </p>
+                <button className="btn ml-auto" onClick={handleClick}>
+                 `Add Friend
+                </button>
             </Link>
             </div>
           </div>
