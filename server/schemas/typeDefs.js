@@ -20,6 +20,7 @@ type Post {
   cost: Int
   pointsOfInterest: String
   transport: String
+  extra: String
   createdAt: String
   username: String
   replyCount: Int
@@ -44,7 +45,7 @@ type Query {
 type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!): Auth
-  addPost(location: String!, cost: Int!, pointsOfInterest: String!, transport: String!): Post
+  addPost(location: String!, cost: Int!, pointsOfInterest: String!, transport: String!, extra: String!): Post
   addReply(postId: ID!, replyBody: String!): Post
   addFriend(friendId: ID!): User
 }

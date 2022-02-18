@@ -35,6 +35,7 @@ const SinglePost = props => {
     <p>{post.cost}</p>
     <p>{post.pointsOfInterest}</p>
     <p>{post.transport}</p>
+    <p>{post.extra}</p>
     </div>
   </div>
 

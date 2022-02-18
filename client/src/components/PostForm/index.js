@@ -29,16 +29,55 @@ const PostForm = () => {
         }
       });
 
-    const [{location, cost, pointsOfInterest, transport}, setText] = useState('');
+    const [extra, setText5] = useState('');
+    const [cost, setText4] = useState('');
+    const [pointsOfInterest, setText2] = useState('');
+    const [transport, setText3] = useState('');
+    const [location, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
 
 
     const handleChange = event => {
         if (event.target.value.length <= 280) {
           setText(event.target.value);
+        
           setCharacterCount(event.target.value.length);
         }
       };
+
+      const handleChange2 = event => {
+        if (event.target.value.length <= 280) {
+          setText2(event.target.value);
+        
+          setCharacterCount(event.target.value.length);
+        }
+      };
+
+      const handleChange3 = event => {
+        if (event.target.value.length <= 280) {
+          setText3(event.target.value);
+        
+          setCharacterCount(event.target.value.length);
+        }
+      };
+
+      const handleChange4 = event => {
+        if (event.target.value.length <= 280) {
+          setText4(event.target.value);
+        
+          setCharacterCount(event.target.value.length);
+        }
+      };
+
+
+      const handleChange5 = event => {
+        if (event.target.value.length <= 280) {
+          setText5(event.target.value);
+        
+          setCharacterCount(event.target.value.length);
+        }
+      };
+
 
       const handleFormSubmit = async event => {
         event.preventDefault();
@@ -46,10 +85,10 @@ const PostForm = () => {
         try {
           // add post to database
           await addPost({
-            variables: { location, cost, pointsOfInterest, transport }
+            variables: { location, cost, pointsOfInterest, transport, extra }
         
           });
-          console.log(addPost);
+         
       
           // clear form value
           setText('');
@@ -69,29 +108,36 @@ const PostForm = () => {
         onSubmit={handleFormSubmit}
       >
       <textarea
-       placeholder="New trip?"
+       placeholder="location?"
        value={location}
        className="form-input col-12 col-md-9"
        onChange={handleChange}
       ></textarea>
-      <textarea
-       placeholder="New trip?"
-       value={cost}
+      <input
+       placeholder="cost?"
+       value={cost}     
        className="form-input col-12 col-md-9"
-       onChange={handleChange}
-      ></textarea>
+       onChange={handleChange4}
+      ></input>
       <textarea
-       placeholder="New trip?"
+       placeholder="POI?"
        value={pointsOfInterest}
        className="form-input col-12 col-md-9"
-       onChange={handleChange}
+       onChange={handleChange2}
       ></textarea>
       <textarea
-       placeholder="New trip?"
+       placeholder="Transport?"
        value={transport}
        className="form-input col-12 col-md-9"
-       onChange={handleChange}
+       onChange={handleChange3}
       ></textarea>
+      <textarea
+       placeholder="Additional?"
+       value={extra}
+       className="form-input col-12 col-md-9"
+       onChange={handleChange5}
+      ></textarea>
+      
         <button className="btn col-12 col-md-3" type="submit">
           Submit
         </button>

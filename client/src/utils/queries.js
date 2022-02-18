@@ -8,6 +8,7 @@ export const QUERY_POSTS = gql`
       cost
       pointsOfInterest
       transport
+      extra
       createdAt
       username
       replyCount
@@ -29,6 +30,7 @@ export const QUERY_POST = gql`
       cost
       pointsOfInterest
       transport
+      extra
       createdAt
       username
       replyCount
@@ -59,6 +61,7 @@ export const QUERY_USER = gql`
         cost
         pointsOfInterest
         transport
+        extra
         createdAt
         replyCount
       }
@@ -80,6 +83,7 @@ export const QUERY_ME = gql`
         cost
         pointsOfInterest
         transport
+        extra
         createdAt
         replyCount
         replies {

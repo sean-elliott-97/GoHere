@@ -28,6 +28,7 @@ const PostList = ({ posts, title }) => {
                 <p>{post.cost}</p>
                 <p>{post.pointsOfInterest}</p>
                 <p>{post.transport}</p>
+                <p>{post.extra}</p>
                 <p className="mb-0">
                 Replies: {post.replyCount} || Click to{' '}
                 {post.replyCount ? 'see' : 'start'} the discussion!

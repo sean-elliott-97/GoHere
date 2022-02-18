@@ -13,9 +13,7 @@ const postSchema = new Schema(
     },
     cost: {
       type: Number,
-      required: 'Cost required',
-      minlength: 1,
-      maxlength: 30
+      required: 'cost required',
     },
     pointsOfInterest: {
       type: String,
@@ -24,6 +22,12 @@ const postSchema = new Schema(
       maxlength: 280
     },   
 
+    transport: {
+      type: String,
+      required: 'Transportation required',
+      minlength: 1,
+      maxlength: 280
+    },
     transport: {
       type: String,
       required: 'Transportation required',
