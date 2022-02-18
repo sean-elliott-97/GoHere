@@ -40,13 +40,15 @@ export const ADD_FRIEND = gql`
 
 export const SAVE_TRIP = gql`
   mutation saveTrip($id: ID!) {
-    saveTrip(postId: $id) {
-      _id
+    saveTrip(postId: $id) {    
+      
+        _id
         location
         cost
         pointsOfInterest
         transport
         extra
+
     }
   }
 `;

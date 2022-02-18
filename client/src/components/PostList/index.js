@@ -64,7 +64,7 @@ const PostList = ({ posts, title }) => {
                 {post.replyCount ? 'see' : 'start'} the discussion!
                 </p>
                 <button className="btn ml-auto" onClick={() => { handleClick(post) }}>
-                 Save Post
+                 Save Trip
                 </button>
             </Link>
             </div>

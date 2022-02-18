@@ -12,7 +12,7 @@ type User {
   friendCount: Int
   posts: [Post]
   friends: [User]
-  savedTrips: [User]
+  savedTrips: [Post]
 }
 
 type Post {
