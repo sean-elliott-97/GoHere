@@ -24,7 +24,10 @@ const PostList = ({ posts, title }) => {
             </p>
             <div className="card-body">
             <Link to={`/post/${post._id}`}>
-                <p>{post.postText}</p>
+                <p>{post.location}</p>
+                <p>{post.cost}</p>
+                <p>{post.pointsOfInterest}</p>
+                <p>{post.transport}</p>
                 <p className="mb-0">
                 Replies: {post.replyCount} || Click to{' '}
                 {post.replyCount ? 'see' : 'start'} the discussion!

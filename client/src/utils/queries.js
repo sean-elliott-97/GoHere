@@ -4,7 +4,10 @@ export const QUERY_POSTS = gql`
   query posts($username: String) {
     posts(username: $username) {
       _id
-      postText
+      location
+      cost
+      pointsOfInterest
+      transport
       createdAt
       username
       replyCount
@@ -22,7 +25,10 @@ export const QUERY_POST = gql`
   query post($id: ID!) {
     post(_id: $id) {
       _id
-      postText
+      location
+      cost
+      pointsOfInterest
+      transport
       createdAt
       username
       replyCount
@@ -49,7 +55,10 @@ export const QUERY_USER = gql`
       }
       posts {
         _id
-        postText
+        location
+        cost
+        pointsOfInterest
+        transport
         createdAt
         replyCount
       }
@@ -67,7 +76,10 @@ export const QUERY_ME = gql`
       friendCount
       posts {
         _id
-        postText
+        location
+        cost
+        pointsOfInterest
+        transport
         createdAt
         replyCount
         replies {

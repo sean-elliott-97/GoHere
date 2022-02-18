@@ -39,12 +39,13 @@ export const ADD_FRIEND = gql`
 `;
 
 export const ADD_POST = gql`
-  mutation addPost($postText: String!) {
-    addPost(postText: $postText) {
+  mutation addPost($location: String!, $cost: Number!, $pointsOfInterest: String!, $transport: String!) {
+    addPost(location: $location, cost: $cost, pointsOfInterest: $pointsOfInterest, transport: $transport) {
       _id
-      postText
-      createdAt
-      username
+      location
+      cost
+      pointsOfInterest
+      transport
       replyCount
       replies {
         _id

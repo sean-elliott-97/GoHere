@@ -29,7 +29,7 @@ const PostForm = () => {
         }
       });
 
-    const [postText, setText] = useState('');
+    const [{location, cost, pointsOfInterest, transport}, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
 
 
@@ -46,8 +46,10 @@ const PostForm = () => {
         try {
           // add post to database
           await addPost({
-            variables: { postText }
+            variables: { location, cost, pointsOfInterest, transport }
+        
           });
+          console.log(addPost);
       
           // clear form value
           setText('');
@@ -68,7 +70,25 @@ const PostForm = () => {
       >
       <textarea
        placeholder="New trip?"
-       value={postText}
+       value={location}
+       className="form-input col-12 col-md-9"
+       onChange={handleChange}
+      ></textarea>
+      <textarea
+       placeholder="New trip?"
+       value={cost}
+       className="form-input col-12 col-md-9"
+       onChange={handleChange}
+      ></textarea>
+      <textarea
+       placeholder="New trip?"
+       value={pointsOfInterest}
+       className="form-input col-12 col-md-9"
+       onChange={handleChange}
+      ></textarea>
+      <textarea
+       placeholder="New trip?"
+       value={transport}
        className="form-input col-12 col-md-9"
        onChange={handleChange}
       ></textarea>

@@ -4,9 +4,29 @@ const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
   {
-    postText: {
+  
+    location: {
       type: String,
-      required: 'You need to leave a post!',
+      required: 'Location required',
+      minlength: 1,
+      maxlength: 280
+    },
+    cost: {
+      type: Number,
+      required: 'Cost required',
+      minlength: 1,
+      maxlength: 30
+    },
+    pointsOfInterest: {
+      type: String,
+      required: 'POI required',
+      minlength: 1,
+      maxlength: 280
+    },   
+
+    transport: {
+      type: String,
+      required: 'Transportation required',
       minlength: 1,
       maxlength: 280
     },

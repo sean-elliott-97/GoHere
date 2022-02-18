@@ -31,7 +31,10 @@ const SinglePost = props => {
       post on {post.createdAt}
     </p>
     <div className="card-body">
-      <p>{post.postText}</p>
+    <p>{post.location}</p>
+    <p>{post.cost}</p>
+    <p>{post.pointsOfInterest}</p>
+    <p>{post.transport}</p>
     </div>
   </div>
 
