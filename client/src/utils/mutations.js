@@ -47,15 +47,6 @@ export const SAVE_TRIP = gql`
         pointsOfInterest
         transport
         extra
-      savedTripsCount
-      savedTrips {
-        _id
-        location
-        cost
-        pointsOfInterest
-        transport
-        extra
-      }
     }
   }
 `;

@@ -9,29 +9,38 @@ import { SAVE_TRIP } from '../../utils/mutations';
 
 
 const PostList = ({ posts, title }) => {
-  if (!posts.length) {
-    return <h3>No trips posted..</h3>;
-  }
 
 
   const [saveTrip] = useMutation(SAVE_TRIP);
-
+ 
   
-  const handleClick = async () => {
+  
+  const handleClick = async (post) => {
+  
+    console.log(post._id)
+
     try {
       await saveTrip({
-        variables: { id: posts._id }
+        variables: { id: post._id }
       });
     } catch (e) {
       console.error(e);
     }
   };
 
+  if (!posts.length) {
+    return <h3>No trips posted..</h3>;
+  }
+
+
+
+
   return (
     <div>
       <h3>{title}</h3>
       {posts &&
         posts.map(post => (
+          
           <div key={post._id} className="card mb-3">
             <p className="card-header">
             <Link
@@ -54,8 +63,8 @@ const PostList = ({ posts, title }) => {
                 Replies: {post.replyCount} || Click to{' '}
                 {post.replyCount ? 'see' : 'start'} the discussion!
                 </p>
-                <button className="btn ml-auto" onClick={handleClick}>
-                 `Add Friend
+                <button className="btn ml-auto" onClick={() => { handleClick(post) }}>
+                 Save Post
                 </button>
             </Link>
             </div>

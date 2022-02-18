@@ -107,7 +107,7 @@ const resolvers = {
     saveTrip: async (parent, { postId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
-          { _id: context.post._id },
+          { _id: context.user._id },
           { $addToSet: { savedTrips: postId } },
           { new: true }
         ).populate('savedTrips');

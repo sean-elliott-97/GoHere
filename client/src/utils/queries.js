@@ -55,17 +55,6 @@ export const QUERY_USER = gql`
         _id
         username
       }
-      savedTrips {
-        _id
-        location
-        cost
-        pointsOfInterest
-        transport
-        extra
-        createdAt
-        replyCount
-        
-      }
       posts {
         _id
         location
@@ -103,8 +92,7 @@ export const QUERY_ME = gql`
           replyBody
           username
         }
-      }
-      
+      } 
       friends {
         _id
         username
@@ -119,7 +107,7 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
-      friendCount
+      friendCount  
       friends {
         _id
         username
