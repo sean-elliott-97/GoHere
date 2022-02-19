@@ -1,7 +1,7 @@
 const { User, Post } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-
+const mongoose = require('mongoose');
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
@@ -119,7 +119,18 @@ const resolvers = {
       }
     
       throw new AuthenticationError('You need to be logged in!');
-    }
+    },
+    removeTrip: async (parent, args, context) => {
+      if (context.user) {
+        const userRemoveTrip = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedTrips: { _id: args._id } } },
+          { new: true }
+        );
+        return userRemoveTrip;
+      }
+      throw new AuthenticationError("You must be signed in to remove a book");
+    },
   }
 
 };
