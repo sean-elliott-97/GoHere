@@ -6,6 +6,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import PostList from '../components/PostList';
 import FriendList from '../components/FriendList';
 import PostForm from '../components/PostForm';
+import SavedTrips from '../pages/SavedTrips';
 
 
 import { useQuery, useMutation } from '@apollo/client';
@@ -78,6 +79,8 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     />
   </div>
   <div className="mb-3">{!userParam && <PostForm />}</div>
+  <div className="mb-3">{!userParam && <SavedTrips />}</div>
+  
     </div>
   );
 };

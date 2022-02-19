@@ -35,7 +35,7 @@ const userSchema = new Schema(
     savedTrips: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'Post'
       }
     ]
   },

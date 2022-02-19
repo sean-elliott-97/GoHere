@@ -14,7 +14,7 @@ import NoMatch from './pages/NoMatch';
 import SinglePost from './pages/SinglePost';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
-import SavedTrips from './pages/SavedTrips';
+
 
 import { setContext } from '@apollo/client/link/context';
 
@@ -52,7 +52,7 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile/:username?" component={Profile} />
             <Route exact path="/post/:id" component={SinglePost} />
-            <Route exact path="/:username/saved" component={SavedTrips} />
+            
 
             <Route component={NoMatch} />
          </Switch>

@@ -1,7 +1,7 @@
 import React  from 'react';
  
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
-
+import {Link} from 'react-router-dom';
 import Auth from '../utils/auth';
 
 import {  useQuery } from '@apollo/client';
@@ -49,10 +49,11 @@ const SavedTrips = () => {
   return (
     <div>
       HELLOO
-      {user.posts.map(trip => (
-        <div>
-            {trip.location} <br></br>
-            {trip.transport}
+      {user.savedTrips.map(trip => (
+        <div key={trip.id}>
+            <Link to={`post/${trip._id}`}>
+            {trip.location} 
+            </Link>
         </div>
       ))}
     </div>
