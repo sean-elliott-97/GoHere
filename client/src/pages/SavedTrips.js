@@ -1,21 +1,21 @@
 import React  from 'react';
  
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
-
+import {Link} from 'react-router-dom';
 import Auth from '../utils/auth';
 
 import {  useQuery } from '@apollo/client';
-import { QUERY_TRIP } from '../utils/queries';
+// import { QUERY_TRIP } from '../utils/queries';
 import { QUERY_ME } from '../utils/queries';
-import { QUERY_ME_BASIC } from '../utils/queries';
+// import { QUERY_ME_BASIC } from '../utils/queries';
 
 const SavedTrips = () => {
  
 
   //const [removetrip, {error}] = useMutation(REMOVE_trip);
   const { loading, data} = useQuery(QUERY_ME);
-  const {loadingTrip,tripData}=useQuery(QUERY_TRIP);
-  const trip = tripData?.me||[];
+  // const {loadingTrip,tripData}=useQuery(QUERY_TRIP);
+  // const trip = tripData?.me||[];
   const user = data?.me || [];
 
   console.log(user);
@@ -50,11 +50,18 @@ const SavedTrips = () => {
 
   return (
     <div>
-      HELLOO
-      {user.posts.map(trip => (
-        <div>
-            {trip.location} <br></br>
-            {trip.transport}
+      <h1>Saved Trips</h1>
+      {user.savedTrips.map(trip => (
+        <div key={trip._id}>
+            <Link to={`post/${trip._id}`}>
+             
+              <p>{trip.location}</p>
+
+             
+             
+            </Link>
+
+            
         </div>
       ))}
     </div>

@@ -131,15 +131,15 @@ export const QUERY_ME_BASIC = gql`
   }
 `;
 
-export const QUERY_TRIP = gql`
-  query post($id: ID!) {
-    post(_id: $id) {
-      _id
-      location
-      cost
-      pointsOfInterest
-      transport
-      extra
-    }
-  }
-`;
+// export const QUERY_TRIP = gql`
+//   query post($id: ID!) {
+//     post(_id: $id) {
+//       _id
+//       location
+//       cost
+//       pointsOfInterest
+//       transport
+//       extra
+//     }
+//   }
+// `;
