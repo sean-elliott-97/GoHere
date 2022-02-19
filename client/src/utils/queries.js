@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_POSTS = gql`
   query posts($username: String) {
@@ -69,7 +69,6 @@ export const QUERY_USER = gql`
   }
 `;
 
-
 export const QUERY_ME = gql`
   {
     me {
@@ -103,14 +102,9 @@ export const QUERY_ME = gql`
       }
       friends {
         _id
-        username    
+        username
       }
-      
-      
-      
-      
     }
-    
   }
 `;
 
@@ -120,11 +114,32 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
-      friendCount  
+      friendCount
+      savedTrips {
+        _id
+        location
+        cost
+        pointsOfInterest
+        transport
+        extra
+      }
       friends {
         _id
         username
       }
+    }
+  }
+`;
+
+export const QUERY_TRIP = gql`
+  query post($id: ID!) {
+    post(_id: $id) {
+      _id
+      location
+      cost
+      pointsOfInterest
+      transport
+      extra
     }
   }
 `;
