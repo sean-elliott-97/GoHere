@@ -53,6 +53,7 @@ type Mutation {
   addFriend(friendId: ID!): User
   saveTrip(postId: ID!): Post
   removeTrip(_id:ID!, index: Int):Post
+  removeFriend(_id:ID!,index:Int):User
 }
 
 type Auth {

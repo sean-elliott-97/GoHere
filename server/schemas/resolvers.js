@@ -151,6 +151,34 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be signed in to remove a trip");
     },
+    removeFriend: async (parent, { _id, index }, context) => {
+      //index = parseInt(index);
+      var savedFriendsIndex = `friends.${index}`;
+      if (context.user) {
+        var userUnsetFriend = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $unset: { [savedFriendsIndex]: _id } },
+
+          console.log(_id),
+          console.log(index),
+          { new: true }
+        );
+        // return userUnsetTrip;
+      }
+      if (context.user) {
+        var userRemoveFriend = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+
+          { $pull: { friends: null } },
+
+          console.log(_id),
+          console.log(index),
+          { new: true }
+        );
+        return userUnsetFriend + userRemoveFriend;
+      }
+      throw new AuthenticationError("You must be signed in to remove a trip");
+    },
   },
 };
 

@@ -64,6 +64,15 @@ mutation removeTrip($_id:ID!, $index: Int!){
 
   }
 }
+`
+export const REMOVE_FRIEND=gql`
+mutation removeFriend($_id:ID!,$index:Int!){
+  removeFriend(_id:$_id,index:$index){
+    username
+    email
+  }
+}
+
 
 
 
