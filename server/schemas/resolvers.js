@@ -1,7 +1,8 @@
 const { User, Post } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose').ObjectId;
+const { assertObjectType } = require('graphql');
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
@@ -124,8 +125,9 @@ const resolvers = {
       if (context.user) {
         const userRemoveTrip = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedTrips: { _id: args._id } } },
-          { new: true }
+          { $pull: { savedTrips: { _id :(args._id) } } },
+          
+          // { new: true }
         );
         return userRemoveTrip;
       }

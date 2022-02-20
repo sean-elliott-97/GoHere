@@ -79,7 +79,8 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     />
   </div>
   <div className="mb-3">{!userParam && <PostForm />}</div>
-  <SavedTrips/>
+  <div className="mb-3">{!userParam && <SavedTrips/>}</div>
+  
     </div>
   );
 };

@@ -23,8 +23,9 @@ const SavedTrips = () => {
   //console.log(user);
 
   // create function that accepts the trip's mongo _id value as param and deletes the trip from the database
-  const handleDeleteTrip = async (_id) => {
+  const handleDeleteTrip = async (_id,index) => {
     console.log((_id));
+    console.log(index);
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -34,7 +35,7 @@ const SavedTrips = () => {
     try {
 
       await removeTrip({
-      variables: { _id }
+      variables: { _id,index }
     });
 
     // console.log(postId);
@@ -53,13 +54,17 @@ const SavedTrips = () => {
   return (
     <div>
       <h1>Saved Trips</h1>
-      {user.savedTrips.map((trip) => (
+      {user.savedTrips.map((trip,index) => (
         <div key={trip._id}>
+          {/* {console.log(index)} */}
           <Card>
+            
           {/* <Link to={`post/${trip._id}`}> */}
-            <p>{trip._id}</p>
+            {/* <p>{trip._id}</p> */}
+            <p>{trip.location}</p>
+            <p>${trip.cost}</p>
             {/* {console.log(trip._id.toString())} */}
-            <button onClick={()=>handleDeleteTrip(trip._id)}>Remove trip</button>
+            <button onClick={()=>handleDeleteTrip(trip._id,index)}>Remove trip</button>
           {/* </Link> */}
           </Card>
         </div>
