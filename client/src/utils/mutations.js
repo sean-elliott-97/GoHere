@@ -24,6 +24,36 @@ export const ADD_USER = gql`
   }
 `;
 
+export const ADD_THOUGHT = gql`
+  mutation addThought($thoughtText: String!) {
+    addThought(thoughtText: $thoughtText) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_REACTION = gql`
+  mutation addReaction($thoughtId: ID!, $reactionBody: String!) {
+    addReaction(thoughtId: $thoughtId, reactionBody: $reactionBody) {
+      _id
+      reactionCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
+
 export const ADD_FRIEND = gql`
   mutation addFriend($id: ID!) {
     addFriend(friendId: $id) {
@@ -38,73 +68,13 @@ export const ADD_FRIEND = gql`
   }
 `;
 
-export const SAVE_TRIP = gql`
-  mutation saveTrip($id: ID!) {
-    saveTrip(postId: $id) {    
-      
-        _id
-        location
-        cost
-        pointsOfInterest
-        transport
-        extra
-
-    }
-  }
-`;
-export const REMOVE_TRIP=gql`
-mutation removeTrip($_id:ID!, $index: Int!){
-  removeTrip(_id:$_id, index:$index){
-    _id
-    cost
-    extra
-    location
-    pointsOfInterest
-    transport
-
-  }
-}
-`
-export const REMOVE_FRIEND=gql`
-mutation removeFriend($_id:ID!,$index:Int!){
-  removeFriend(_id:$_id,index:$index){
-    username
-    email
-  }
-}
-
-
-
-
-
-`
-
-export const ADD_POST = gql`
-  mutation addPost($location: String!, $cost: Int!, $pointsOfInterest: String!, $transport: String!, $extra: String!) {
-    addPost(location: $location, cost: $cost, pointsOfInterest: $pointsOfInterest, transport: $transport, extra: $extra) {
+export const REMOVE_FRIEND = gql`
+  mutation removeFriend($id: ID!) {
+    removeFriend(id: $id) {
       _id
-      location
-      cost
-      pointsOfInterest
-      transport
-      extra
-      replyCount
-      replies {
+      username
+      friends {
         _id
-      }
-    }
-  }
-`;
-
-export const ADD_REPLY = gql`
-  mutation addReply($postId: ID!, $replyBody: String!) {
-    addReply(postId: $postId, replyBody: $replyBody) {
-      _id
-      replyCount
-      replies {
-        _id
-        replyBody
-        createdAt
         username
       }
     }

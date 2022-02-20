@@ -1,44 +1,36 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
-export const QUERY_POSTS = gql`
-  query posts($username: String) {
-    posts(username: $username) {
+export const QUERY_THOUGHTS = gql`
+  query thoughts($username: String) {
+    thoughts(username: $username) {
       _id
-      location
-      cost
-      pointsOfInterest
-      transport
-      extra
+      thoughtText
       createdAt
       username
-      replyCount
-      replies {
+      reactionCount
+      reactions {
         _id
         createdAt
         username
-        replyBody
+        reactionBody
       }
     }
   }
 `;
 
-export const QUERY_POST = gql`
-  query post($id: ID!) {
-    post(_id: $id) {
+export const QUERY_THOUGHT = gql`
+  query thought($id: ID!) {
+    thought(_id: $id) {
       _id
-      location
-      cost
-      pointsOfInterest
-      transport
-      extra
+      thoughtText
       createdAt
       username
-      replyCount
-      replies {
+      reactionCount
+      reactions {
         _id
         createdAt
         username
-        replyBody
+        reactionBody
       }
     }
   }
@@ -55,15 +47,11 @@ export const QUERY_USER = gql`
         _id
         username
       }
-      posts {
+      thoughts {
         _id
-        location
-        cost
-        pointsOfInterest
-        transport
-        extra
+        thoughtText
         createdAt
-        replyCount
+        reactionCount
       }
     }
   }
@@ -76,27 +64,15 @@ export const QUERY_ME = gql`
       username
       email
       friendCount
-      savedTrips {
+      thoughts {
         _id
-        location
-        cost
-        pointsOfInterest
-        transport
-        extra
-      }
-      posts {
-        _id
-        location
-        cost
-        pointsOfInterest
-        transport
-        extra
+        thoughtText
         createdAt
-        replyCount
-        replies {
+        reactionCount
+        reactions {
           _id
           createdAt
-          replyBody
+          reactionBody
           username
         }
       }
@@ -115,14 +91,6 @@ export const QUERY_ME_BASIC = gql`
       username
       email
       friendCount
-      savedTrips {
-        _id
-        location
-        cost
-        pointsOfInterest
-        transport
-        extra
-      }
       friends {
         _id
         username
@@ -130,16 +98,3 @@ export const QUERY_ME_BASIC = gql`
     }
   }
 `;
-
-// export const QUERY_TRIP = gql`
-//   query post($id: ID!) {
-//     post(_id: $id) {
-//       _id
-//       location
-//       cost
-//       pointsOfInterest
-//       transport
-//       extra
-//     }
-//   }
-// `;

@@ -1,23 +1,22 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 import Home from './pages/Home';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
-import SinglePost from './pages/SinglePost';
+import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
-import SavedTrips from './pages/SavedTrips';
-
-import { setContext } from '@apollo/client/link/context';
-
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -45,18 +44,15 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/profile/:username?" component={Profile} />
+              <Route exact path="/thought/:id" component={SingleThought} />
 
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/profile/:username?" component={Profile} />
-            <Route exact path="/post/:id" component={SinglePost} />
-            {/* <Route exact path="/:username/saved" component={SavedTrips} /> */}
-
-            <Route component={NoMatch} />
-         </Switch>
-
+              <Route component={NoMatch} />
+            </Switch>
           </div>
           <Footer />
         </div>
