@@ -53,8 +53,8 @@ export const SAVE_TRIP = gql`
   }
 `;
 export const REMOVE_TRIP=gql`
-mutation removeTrip($_id:ID!){
-  removeTrip(_id:$_id){
+mutation removeTrip($_id:ID!, $index: Int!){
+  removeTrip(_id:$_id, index:$index){
     _id
     cost
     extra
@@ -64,6 +64,15 @@ mutation removeTrip($_id:ID!){
 
   }
 }
+`
+export const REMOVE_FRIEND=gql`
+mutation removeFriend($_id:ID!,$index:Int!){
+  removeFriend(_id:$_id,index:$index){
+    username
+    email
+  }
+}
+
 
 
 

@@ -7,11 +7,12 @@ import PostList from '../components/PostList';
 import FriendList from '../components/FriendList';
 import PostForm from '../components/PostForm';
 
-import {SAVE_TRIP} from '../utils/mutations'
+//import {SAVE_TRIP} from '../utils/mutations'
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND } from '../utils/mutations';
 import SavedTrips from './SavedTrips';
+
 
 
 const Profile = () => {

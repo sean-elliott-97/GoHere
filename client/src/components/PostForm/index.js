@@ -7,7 +7,7 @@ import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
 const PostForm = () => {
 
-    const [addPost, { error }] = useMutation(ADD_POST, {
+    const [addPost, { error }] = useMutation(ADD_POST, {refetchQueries:[QUERY_POSTS]},{
         update(cache, { data: { addPost } }) {
           try {
             // could potentially not exist yet, so wrap in a try...catch
@@ -27,7 +27,7 @@ const PostForm = () => {
             data: { me: { ...me, posts: [...me.posts, addPost] } }
           });
         }
-      });
+      })
 
     const [extra, setText5] = useState('');
     const [cost, setText4] = useState('');
@@ -101,7 +101,7 @@ const PostForm = () => {
         } catch (e) {
           console.error(e);
         }
-      };
+      }
       
   return (
     <div>
