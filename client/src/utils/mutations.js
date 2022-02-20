@@ -52,6 +52,23 @@ export const SAVE_TRIP = gql`
     }
   }
 `;
+export const REMOVE_TRIP=gql`
+mutation removeTrip($_id:ID!){
+  removeTrip(_id:$_id){
+    _id
+    cost
+    extra
+    location
+    pointsOfInterest
+    transport
+
+  }
+}
+
+
+
+
+`
 
 export const ADD_POST = gql`
   mutation addPost($location: String!, $cost: Int!, $pointsOfInterest: String!, $transport: String!, $extra: String!) {

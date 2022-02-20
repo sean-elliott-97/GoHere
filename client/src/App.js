@@ -52,7 +52,7 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile/:username?" component={Profile} />
             <Route exact path="/post/:id" component={SinglePost} />
-            <Route exact path="/:username/saved" component={SavedTrips} />
+            {/* <Route exact path="/:username/saved" component={SavedTrips} /> */}
 
             <Route component={NoMatch} />
          </Switch>
