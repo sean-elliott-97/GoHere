@@ -14,7 +14,8 @@ const PostForm = () => {
             const { posts } = cache.readQuery({ query: QUERY_POSTS });
             cache.writeQuery({
               query: QUERY_POSTS,
-              data: { posts: [addPost, ...posts] }
+              data: { posts: [addPost, ...posts] },
+              
             });
           } catch (e) {
             console.error(e);
@@ -27,7 +28,7 @@ const PostForm = () => {
             data: { me: { ...me, posts: [...me.posts, addPost] } }
           });
         }
-      });
+      })
 
     const [extra, setText5] = useState('');
     const [cost, setText4] = useState('');
@@ -87,7 +88,7 @@ const PostForm = () => {
           await addPost({
            
             variables: { location, cost, pointsOfInterest, transport, extra }
-        
+            
           });
          
       
@@ -101,7 +102,7 @@ const PostForm = () => {
         } catch (e) {
           console.error(e);
         }
-      };
+      }
       
   return (
     <div>

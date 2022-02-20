@@ -52,7 +52,7 @@ type Mutation {
   addReply(postId: ID!, replyBody: String!): Post
   addFriend(friendId: ID!): User
   saveTrip(postId: ID!): Post
-  removeTrip(_id:ID!):Post
+  removeTrip(_id:ID!, index: Int):Post
 }
 
 type Auth {

@@ -16,9 +16,9 @@ const Home = () => {
 
 
   // use useQuery hook to make query request
-  const { loading, data } = useQuery(QUERY_POSTS);
+  const { loading, data, refetch } = useQuery(QUERY_POSTS);
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
-  const { data: userData } = useQuery(QUERY_ME_BASIC);
+  const { data: userData, } = useQuery(QUERY_ME_BASIC);
   
   const posts = data?.posts || [];
   // const savedTrips = data?.savedTrips||[];

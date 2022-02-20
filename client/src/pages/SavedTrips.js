@@ -17,7 +17,10 @@ import { QUERY_ME } from "../utils/queries";
 
 const SavedTrips = () => {
   const { loading, data } = useQuery(QUERY_ME);
-  const [removeTrip, {error}] = useMutation(REMOVE_TRIP);
+  const [removeTrip, {error}] = useMutation(REMOVE_TRIP,{refetchQueries: [
+    QUERY_ME, // DocumentNode object parsed with gql
+    //'me' // Query name
+  ]},);
   const user = data?.me || [];
 
   //console.log(user);
