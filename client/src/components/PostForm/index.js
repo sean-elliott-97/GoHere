@@ -7,15 +7,14 @@ import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
 const PostForm = () => {
 
-    const [addPost, { error }] = useMutation(ADD_POST, {
+    const [addPost, { error }] = useMutation(ADD_POST, {refetchQueries:[QUERY_POSTS]},{
         update(cache, { data: { addPost } }) {
           try {
             // could potentially not exist yet, so wrap in a try...catch
             const { posts } = cache.readQuery({ query: QUERY_POSTS });
             cache.writeQuery({
               query: QUERY_POSTS,
-              data: { posts: [addPost, ...posts] },
-              
+              data: { posts: [addPost, ...posts] }
             });
           } catch (e) {
             console.error(e);
@@ -88,7 +87,7 @@ const PostForm = () => {
           await addPost({
            
             variables: { location, cost, pointsOfInterest, transport, extra }
-            
+        
           });
          
       
