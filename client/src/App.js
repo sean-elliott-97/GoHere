@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch,useHistory } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -15,10 +15,10 @@ import SinglePost from './pages/SinglePost';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 // import SavedTrips from './pages/SavedTrips';
-
+import SavedTrips from './components/SavedTrips';
 import { setContext } from '@apollo/client/link/context';
 
-
+const history = useHistory
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -52,6 +52,7 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile/:username?" component={Profile} />
             <Route exact path="/post/:id" component={SinglePost} />
+            <Route exact path="/savedTrips" component={SavedTrips}/>
             {/* <Route exact path="/:username/saved" component={SavedTrips} /> */}
 
             <Route component={NoMatch} />

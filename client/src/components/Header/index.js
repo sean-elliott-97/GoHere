@@ -13,7 +13,7 @@ const Header = () => {
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
-          <h1>GoHere</h1>
+          <h1>GoHere!</h1>
         </Link>
 
         <nav className="text-center">
@@ -23,11 +23,13 @@ const Header = () => {
               <a href="/" onClick={logout}>
                 Logout
               </a>
+              <Link to ="/savedTrips">Saved Trips</Link>
             </>
           ) : (
             <>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
+              
             </>
           )}
         </nav>
