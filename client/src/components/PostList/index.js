@@ -1,22 +1,22 @@
 import React from 'react';
+
+import Auth from '../../utils/auth';
+
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
-import { useMutation} from '@apollo/client';
 
 
 
-import { SAVE_TRIP } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+
+
+import { SAVE_TRIP,} from '../../utils/mutations';
 
 
 
 const PostList = ({ posts, title }) => {
 
 
-
-
-  //console.log(posts)
-
- 
+  const loggedIn = Auth.loggedIn();
 
   const [saveTrip] = useMutation(SAVE_TRIP);
  
@@ -34,19 +34,29 @@ const PostList = ({ posts, title }) => {
       console.error(e);
     }
   };
+  // const handleRemovePost = async(post)=>{
+  //   console.log(post._id);
+  //   try{
+  //     await removePost({_id:post._id}
+  //   );
+  // }catch(e){
+  //   console.error(e);
+  // }
+  // }
 
-  if (!posts.length) {
-    return <h3>No trips posted..</h3>;
-  }
+  // if (!posts.length) {
+  //   return <h3>No trips posted..</h3>;
+  // }
 
-
+  const [showSaved, setShowSaved] = React.useState(false)
+  const onClick = () => setShowSaved(true)
 
 
   return (
     <div>
       <h3>{title}</h3>
       {posts &&
-        posts.map(post=> (
+        posts.map(post => (
           
           <div key={post._id} className="card mb-3">
             <p className="card-header">
@@ -70,12 +80,22 @@ const PostList = ({ posts, title }) => {
                 Replies: {post.replyCount} || Click to{' '}
                 {post.replyCount ? 'see' : 'start'} the discussion!
                 </p>
-            </Link>
-               <Button className="btn ml-auto" onClick={() => { handleClick(post) }}>
-                 Save Trip
-                </Button>
+                </Link>
+                
+                {loggedIn && (   
 
+                <div>
+
+                <button className="btn ml-auto" onClick={() => { handleClick(post) }}>Save Trip</button> 
+
+                </div>
+
+                )}
+               
+            
+            {console.log(post._id)}
             </div>
+            {/* <button onClick={()=>{handleRemovePost(post)}}>Remove Post</button> */}
           </div>
         ))}
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import Logo from '../../images/goHerebig.png'
 
 const Header = () => {
 
@@ -10,10 +11,10 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-secondary mb-4 py-2 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+    <header className="header-cont mb-4 py-2 flex-row align-center">
+      <div className=" flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
-          <h1>GoHere!</h1>
+          <img className="go-here-img" src={Logo} />
         </Link>
 
         <nav className="text-center">

@@ -16,7 +16,7 @@ const Home = () => {
 
   const loggedIn = Auth.loggedIn();
 
-
+ 
   // use useQuery hook to make query request
   const { loading, data, } = useQuery(QUERY_POSTS);
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
@@ -26,15 +26,25 @@ const Home = () => {
   // const savedTrips = data?.savedTrips||[];
   //PostList(posts)
  
+  const [showForm, setShowForm] = React.useState(false)
+  const onClick = () => setShowForm(true)
+
+ 
+ 
+  
   
  
  
   return (
     <main>
    <div className="flex-row justify-space-between">
-    {loggedIn && (
+    {loggedIn && (   
+      
       <div className="col-12 mb-3">
-        <PostForm />
+
+   
+         { showForm ? <PostForm /> : <button onClick={onClick} type="button" class="btn btn-success">New Post</button>  }
+        
       </div>
     )}
     <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>

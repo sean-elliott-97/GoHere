@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
-import Home from '../../pages/Home';
-import PostList from '../PostList'
 
 
 
@@ -112,17 +110,12 @@ const PostForm = () => {
       //const userData = user.savedTrips;
       //console.log(userData)
    
-  
-
-      
-    
      
-  
-
-
+    
       
   return (
     <div>
+        <div>
       <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
@@ -166,7 +159,8 @@ const PostForm = () => {
           Submit
         </button>
       </form>
-     
+      </div>
+      
       
     </div>
   );

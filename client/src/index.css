@@ -1,8 +1,6 @@
 :root {
   
-  --secondary: #ffffff;
-  --tertiary: #ffffff;
-  --quatrinary: #ffffff;
+ 
   --light: #ffffff;
   --dark: #36204e;
   --error: rgb(228, 46, 1);
@@ -48,6 +46,31 @@ body {
   font-size: 20px;
   color: var(--dark);
 
+}
+.header-cont{
+background-color: rgb(213, 235, 247);
+ display: flex;
+ flex-direction: row;
+ width: 100%; 
+ position: sticky; top: 0;
+ height: 70px;
+ align-items: center;
+
+}
+
+
+
+.app-title {
+  position: relative;
+  bottom: 9px;
+  font-size: 25px;
+}
+
+.go-here-img {
+  height: 60px;
+  position: relative;
+  bottom: 3px;
+  
 }
 
 h1,
@@ -101,8 +124,10 @@ a:visited {
 }
 
 nav {
-  width: 100%;
-  justify-content: center;
+  
+
+  /* box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25); */
+  
 }
 
 nav a {
@@ -112,7 +137,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--secondary);
+  color: white;
   background-color: var(--dark);
 }
 
@@ -133,13 +158,13 @@ nav a:hover {
   border: none;
   color: var(--dark);
   outline: none;
-  background-color: var(--secondary);
+  background-color: white;
   transition: all 0.5s;
 }
 
 .btn:hover,
 .pill:hover {
-  color: var(--secondary);
+
   background-color: var(--dark);
 }
 
@@ -157,7 +182,7 @@ nav a:hover {
 }
 
 .card-header {
-  color: var(--secondary);
+  color: white;
   margin: 0;
   background-color: var(--dark);
   padding: 0.625rem;
@@ -202,7 +227,7 @@ nav a:hover {
   cursor: pointer;
   line-height: 20px;
   display: inline-block;
-  color: var(--secondary);
+  color: white;
   margin-right: 0.2rem;
 }
 
@@ -214,7 +239,7 @@ nav a:hover {
   top: 0;
   width: 18px;
   height: 18px;
-  border: 2px solid var(--secondary);
+  border: 2px solid white;
   border-radius: 100%;
   background: #fff;
 }
@@ -223,7 +248,7 @@ nav a:hover {
   content: '';
   width: 12px;
   height: 12px;
-  background-color: var(--secondary);
+  background-color: white;
   position: absolute;
   top: 5px;
   left: 5px;
@@ -250,6 +275,9 @@ nav a:hover {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 150px;
+  
+
 }
 
 .container-fluid {
@@ -768,15 +796,15 @@ nav a:hover {
 }
 
 .text-secondary {
-  color: var(--secondary);
+  color: white;
 }
 
 .text-tertiary {
-  color: var(--tertiary);
+  color: white;
 }
 
 .text-quatrinary {
-  color: var(--quatrinary);
+  color: white;
 }
 
 .text-light {
@@ -796,13 +824,9 @@ nav a:hover {
   background-color: var(--primary);
 }
 
-.bg-secondary {
-  background-color: var(--secondary);
-}
 
-.bg-tertiary {
-  background-color: var(--tertiary);
-}
+
+
 
 .bg-light {
   background-color: var(--light);
