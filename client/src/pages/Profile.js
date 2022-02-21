@@ -6,12 +6,13 @@ import { Redirect, useParams } from 'react-router-dom';
 import PostList from '../components/PostList';
 import FriendList from '../components/FriendList';
 import PostForm from '../components/PostForm';
-import SavedTrips from '../pages/SavedTrips';
 
-
+//import {SAVE_TRIP} from '../utils/mutations'
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND } from '../utils/mutations';
+import SavedTrips from '../components/SavedTrips';
+
 
 
 const Profile = () => {
@@ -78,8 +79,8 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
       friends={user.friends}
     />
   </div>
-  <div className="mb-3">{!userParam && <PostForm />}</div>
-  <div className="mb-3">{!userParam && <SavedTrips />}</div>
+  {/* <div className="mb-3">{!userParam && <PostForm />}</div> */}
+  {/* <div className="mb-3">{!userParam && <SavedTrips/>}</div> */}
   
     </div>
   );

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { useMutation} from '@apollo/client';
 
-import { useMutation } from '@apollo/client';
 
 
 import { SAVE_TRIP } from '../../utils/mutations';
@@ -10,6 +11,12 @@ import { SAVE_TRIP } from '../../utils/mutations';
 
 const PostList = ({ posts, title }) => {
 
+
+
+
+  //console.log(posts)
+
+ 
 
   const [saveTrip] = useMutation(SAVE_TRIP);
  
@@ -39,7 +46,7 @@ const PostList = ({ posts, title }) => {
     <div>
       <h3>{title}</h3>
       {posts &&
-        posts.map(post => (
+        posts.map(post=> (
           
           <div key={post._id} className="card mb-3">
             <p className="card-header">
@@ -63,10 +70,11 @@ const PostList = ({ posts, title }) => {
                 Replies: {post.replyCount} || Click to{' '}
                 {post.replyCount ? 'see' : 'start'} the discussion!
                 </p>
-                <button className="btn ml-auto" onClick={() => { handleClick(post) }}>
-                 Save Trip
-                </button>
             </Link>
+               <Button className="btn ml-auto" onClick={() => { handleClick(post) }}>
+                 Save Trip
+                </Button>
+
             </div>
           </div>
         ))}

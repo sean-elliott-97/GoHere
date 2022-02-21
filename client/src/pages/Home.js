@@ -2,11 +2,13 @@ import React from 'react';
 import Auth from '../utils/auth';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_POSTS, QUERY_ME_BASIC, QUERY_TRIP } from '../utils/queries';
+import { QUERY_POSTS, QUERY_ME_BASIC, QUERY_ME } from '../utils/queries';
 
 import PostList from '../components/PostList';
 import FriendList from '../components/FriendList';
 import PostForm from '../components/PostForm';
+import SavedTrips from '../components/SavedTrips'
+
 
 
 
@@ -20,9 +22,13 @@ const Home = () => {
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
   const { data: userData, } = useQuery(QUERY_ME_BASIC);
   
-  const posts = data?.posts || [];
+  const posts = data?.posts|| [];
   // const savedTrips = data?.savedTrips||[];
-
+  //PostList(posts)
+ 
+  
+ 
+ 
   return (
     <main>
    <div className="flex-row justify-space-between">
@@ -50,7 +56,10 @@ const Home = () => {
       friendCount={userData.me.friendCount}
       friends={userData.me.friends}
     />
+
+  
   </div>
+  
 ) : <></>}
 
   </div>
