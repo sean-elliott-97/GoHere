@@ -54,6 +54,8 @@ type Mutation {
   saveTrip(postId: ID!): Post
   removeTrip(_id:ID!, index: Int):Post
   removeFriend(_id:ID!,index:Int):User
+  
+  
 }
 
 type Auth {
@@ -64,3 +66,4 @@ type Auth {
 
 // export the typeDefs
 module.exports = typeDefs;
+

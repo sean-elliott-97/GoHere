@@ -1,8 +1,8 @@
 const { User, Post } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
-const ObjectId = require("mongoose").ObjectId;
-const { assertObjectType } = require("graphql");
+// const ObjectId = require("mongoose").ObjectId;
+// const { assertObjectType } = require("graphql");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
@@ -177,9 +177,12 @@ const resolvers = {
         );
         return userUnsetFriend + userRemoveFriend;
       }
-      throw new AuthenticationError("You must be signed in to remove a trip");
+      throw new AuthenticationError("You must be signed in to remove a friend");
     },
-  },
-};
+    
+
+ 
+    }}
 
 module.exports = resolvers;
+

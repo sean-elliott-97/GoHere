@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 
-import { SAVE_TRIP } from '../../utils/mutations';
+import { SAVE_TRIP,} from '../../utils/mutations';
 
 
 
@@ -27,10 +27,19 @@ const PostList = ({ posts, title }) => {
       console.error(e);
     }
   };
+  // const handleRemovePost = async(post)=>{
+  //   console.log(post._id);
+  //   try{
+  //     await removePost({_id:post._id}
+  //   );
+  // }catch(e){
+  //   console.error(e);
+  // }
+  // }
 
-  if (!posts.length) {
-    return <h3>No trips posted..</h3>;
-  }
+  // if (!posts.length) {
+  //   return <h3>No trips posted..</h3>;
+  // }
 
 
 
@@ -66,8 +75,11 @@ const PostList = ({ posts, title }) => {
                 <button className="btn ml-auto" onClick={() => { handleClick(post) }}>
                  Save Trip
                 </button>
+               
             </Link>
+            {console.log(post._id)}
             </div>
+            {/* <button onClick={()=>{handleRemovePost(post)}}>Remove Post</button> */}
           </div>
         ))}
     </div>

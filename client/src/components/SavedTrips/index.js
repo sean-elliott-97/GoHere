@@ -8,11 +8,11 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Auth from "../utils/auth";
-import {REMOVE_TRIP} from '../utils/mutations'
+import Auth from "../../utils/auth";
+import {REMOVE_TRIP} from '../../utils/mutations'
 import { useMutation, useQuery } from "@apollo/client";
 // import { QUERY_TRIP } from '../utils/queries';
-import { QUERY_ME } from "../utils/queries";
+import { QUERY_ME } from "../../utils/queries";
 // import { QUERY_ME_BASIC } from '../utils/queries';
 
 const SavedTrips = () => {

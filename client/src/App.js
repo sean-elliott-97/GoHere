@@ -14,7 +14,7 @@ import NoMatch from './pages/NoMatch';
 import SinglePost from './pages/SinglePost';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
-import SavedTrips from './pages/SavedTrips';
+// import SavedTrips from './pages/SavedTrips';
 
 import { setContext } from '@apollo/client/link/context';
 
