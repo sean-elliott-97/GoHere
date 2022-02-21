@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import image from '../../assets/main.jpg'
 
 const Header = () => {
 
@@ -13,8 +14,11 @@ const Header = () => {
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
-          <h1>GoHere</h1>
+          <h1>GoHere!</h1>
         </Link>
+        <div className="image">
+          <img src={image} alt="" />
+        </div>
 
         <nav className="text-center">
           {Auth.loggedIn() ? (
