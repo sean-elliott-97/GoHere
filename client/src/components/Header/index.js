@@ -29,7 +29,7 @@ const Header = () => {
             <>
               <Link to="/profile">Profile</Link>
              
-              <Link to ="/savedTrips">Saved Trips</Link>
+              <Link to ="/savedTrips">Saved</Link>
               <a href="/" onClick={logout}>
                 Logout
               </a>
