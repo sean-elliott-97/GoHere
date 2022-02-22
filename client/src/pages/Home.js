@@ -1,5 +1,6 @@
 import React from 'react';
 import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_POSTS, QUERY_ME_BASIC, QUERY_ME } from '../utils/queries';
@@ -37,6 +38,18 @@ const Home = () => {
  
   return (
     <main>
+      
+      <div className="landing-buttons">
+        <h1 className="home-title">Hello. Welcome to goHere,</h1>
+        <h4>where you can find your next destination at a button's click.</h4>
+        {!loggedIn && (
+        <div className="home-btn-cont">
+        <Link className="landing-link" to="/login">Login</Link>
+        <Link className="landing-link" to="/signup">Sign Up</Link>
+        </div>
+        )}
+      </div>
+       
    <div className="flex-row justify-space-between">
     {loggedIn && (   
       
@@ -47,7 +60,7 @@ const Home = () => {
         
       </div>
     )}
-    <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+    <div className={`post-list-margin col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
   {loading ? (
     <div>Loading...</div>
   ) : (
