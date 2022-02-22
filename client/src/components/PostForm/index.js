@@ -9,6 +9,7 @@ import Logo from '../../images/destination.png'
 
 
 
+
 const PostForm = () => {
 
     const [addPost, { error }] = useMutation(ADD_POST, {refetchQueries:[QUERY_POSTS]},{
@@ -107,11 +108,9 @@ const PostForm = () => {
         }
       }
       
-      const [hideForm, setHideForm] = React.useState(true)
-      const onClick = () => setHideForm(false)
-    
+      
      
-    
+      
       
   return (
     <div className="all-form">
@@ -163,8 +162,9 @@ const PostForm = () => {
       <button className="btn-submit col-12 col-md-3" type="submit">
           Submit
         </button>
-        { hideForm ? <PostForm /> : <button onClick={onClick} type="button" className="btn-close col-12 col-md-3">Close</button>  }
-        
+        <button className="btn-close col-12 col-md-3">
+          Close
+        </button>
         </div>
       </form>
       </div>

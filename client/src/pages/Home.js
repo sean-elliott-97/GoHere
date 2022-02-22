@@ -29,9 +29,8 @@ const Home = () => {
  
   const [showForm, setShowForm] = React.useState(false)
   const onClick = () => setShowForm(true)
-
- 
- 
+  
+  
   
   
  
@@ -64,7 +63,7 @@ const Home = () => {
   {loading ? (
     <div>Loading...</div>
   ) : (
-    <PostList posts={posts} title="Latest Posts" />
+    <PostList posts={posts} title="Latest posts..." />
   )}
 </div>
 

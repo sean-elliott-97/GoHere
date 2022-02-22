@@ -54,7 +54,7 @@ export const REMOVE_TRIP = gql`
   mutation removeTrip($_id: ID!, $index: Int!) {
     removeTrip(_id: $_id, index: $index) {
       _id
-      locatoin
+      location
       cost
       pointsOfInterest
       transport

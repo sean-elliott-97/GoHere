@@ -524,8 +524,14 @@ width: 500px;
 
 }
 
+.post-title {
+  margin-bottom: 10px;
+}
+
 .all-form {
-    height: 650px;
+    height: 500px;
+   
+    
 
 }
 .form-cont {
@@ -539,6 +545,31 @@ width: 500px;
   margin: 0%;
 }
 
+.saved-cont {
+  display: flex;
+  flex-direction: column;
+  width: 450px;;
+}
+
+.card-saved {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: whitesmoke;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  margin-bottom: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.card-saved .link-p:hover {
+  background-color: rgb(27, 25, 25);
+  transition: all 0.5s;
+  padding: 8px;
+  color: white;
+  
+}
 .img-2 {
  
   position: relative;

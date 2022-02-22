@@ -62,19 +62,22 @@ const SavedTrips = () => {
     <div>
       <h1>Saved Trips</h1>
       {user.savedTrips.map((trip,index) => (
-        <div key={trip._id}>
-          {/* {console.log(index)} */}
-          <Card>
+        <div className="saved-cont" key={trip._id}>
+       
+          <div className="card-saved">
             
-          {/* <Link to={`post/${trip._id}`}> */}
-            {/* <p>{trip._id}</p> */}
-            <p>{trip.location}</p>
+           <Link to={`post/${trip._id}`}> 
+            
+            <p className="link-p">{trip.location}</p>
+            </Link> 
             <p>${trip.cost}</p>
-            {/* {console.log(trip._id.toString())} */}
-            <button onClick={()=>handleDeleteTrip(trip._id,index)}>Remove trip</button>
-          {/* </Link> */}
-          </Card>
+           
+            <button className="btn-submit" onClick={()=>handleDeleteTrip(trip._id,index)}>Remove</button>
+           
+          </div>
         </div>
+
+
       ))}
     </div>
   );
