@@ -4,6 +4,8 @@ import { useMutation, useQuery } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
+import Logo from '../../images/destination.png'
+
 
 
 
@@ -114,7 +116,7 @@ const PostForm = () => {
     
       
   return (
-    <div>
+    <div className="all-form">
         <div className="post-form">
       <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
         
@@ -164,6 +166,8 @@ const PostForm = () => {
         </button>
       </form>
       </div>
+
+      <img className="img-2" src={Logo} />
       
       
     </div>
