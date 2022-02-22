@@ -53,7 +53,7 @@ body {
  width: 100%; 
 justify-content: center;
  height: 70px;
-
+ transition: all 0.5s;
 }
 
 .dropbtn {
@@ -66,17 +66,24 @@ justify-content: center;
   float: right;
   border-radius: 5px;
   margin-top: 4px;
-  position: relative;
-left: 60px;
-  
-    
+  margin-right: 24px;
+  transition: all 0.5s;
+ 
 }
 
+.attach {
+  display: flex;
+  flex-direction: column;
+  
+  width: 500px;
+  height: 50px;
+}
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
 
-  margin-left: 1200px ;
+
   position: sticky; top: 0;
+  
   
  
   
@@ -91,6 +98,7 @@ left: 60px;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  
  
   
 }
@@ -109,9 +117,10 @@ position: relative;}
 .dropdown:hover .dropdown-content {
   
 display: inline-block;
-position: fixed;
+
 margin-top: 55px;
 right: 25px;
+
 
 
 
@@ -143,6 +152,11 @@ right: 25px;
 .img-cont {
   display: flex;
   margin-top: 20px;
+  justify-content: space-evenly;
+  align-content: center;
+  justify-content: center;
+  
+  gap: 750px;
  
   
 }
@@ -152,7 +166,7 @@ right: 25px;
   height: 75px;
   position: relative;
   bottom: 3px;
-  left: 40px;
+  
   
  
   
@@ -233,30 +247,132 @@ nav a:hover {
   font-size: 2.5rem;
 }
 
-.btn,
+.btn ,
 .pill {
-  font-size: 1.3rem;
-  text-decoration: none;
   padding: 0.5rem 1.2rem;
-  margin: 5px 0;
   border-radius: var(--border-radius);
   border: none;
   color: var(--dark);
   outline: none;
-  background-color: white;
+  background-color: darkblue;
   transition: all 0.5s;
+  width: 50px;
+  color: rgb(27, 25, 25);
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn-close {
+
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--dark);
+  outline: none;
+  background-color: darkblue;
+  transition: all 0.5s;
+  width: 50px;
+  color: rgb(27, 25, 25);
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn-submit {
+
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--dark);
+  outline: none;
+  background-color: rgb(27, 25, 25);
+  transition: all 0.5s;
+
+  color: rgb(27, 25, 25);
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn-follow {
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--dark);
+  height: 40px;
+  outline: none;
+  background-color: #3e8e41;
+  transition: all 0.5s;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.submit-green { padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius);
+  border: none;
+  outline: none;
+  transition: all 0.5s;
+  width: 150px;
+  height: 40px;
+  color: rgb(27, 25, 25);
+  background-color: white;
+  cursor: pointer;
+  background-color: #3e8e41;
+  color: white;
+}
+
+.submit-green:hover {
+  background-color: rgb(27, 25, 25);
+
+  
+
+}
+.btn-close:hover {
+  background-color: rgb(27, 25, 25);
+  color: white;
+
+}
+
+.btn-submit:hover {
+  background-color: rgb(27, 25, 25);
+  color: white;
+
+}
+
+.btn-follow:hover {
+  background-color: rgb(27, 25, 25);
+  color: white;
+
 }
 
 .btn:hover,
 .pill:hover {
-
-  background-color: var(--dark);
+cursor: pointer;
+ background-color: var(--dark);
 }
 
 .btn-inline {
   display: inline;
 }
 
+.btn-submit-cont {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.profile-follow-cont {
+  display: flex;
+  flex-direction: row;
+  width: 373px;
+  align-items: center;
+  
+  
+}
+
+span {
+  font-weight: bold;
+}
 /* CARDS */
 .card {
   margin: 0 0 20px 0;
@@ -277,6 +393,7 @@ nav a:hover {
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
+ 
 }
 
 /* FORM */
@@ -374,13 +491,14 @@ width: 500px;
 }
 
 .all-form {
-  
-  height: 650px;
+    height: 650px;
+
 }
 .form-cont {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
 
 .img-2 {
@@ -388,7 +506,7 @@ width: 500px;
   position: relative;
   bottom: 470px;
   left: 650px;
-  width: 400px;
+  width: 430px;
   height: 380px;
 
 }
@@ -425,6 +543,70 @@ width: 500px;
 .display-inline {
   display: inline;
 }
+
+
+
+.heart-like-button {
+  position: relative;
+  width: 160px;
+  height: 130px;
+}
+.heart-like-button:before {
+  position: absolute;
+  top: 0;
+  left: 80px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  width: 80px;
+  height: 125px;
+  border-radius: 40px 40px 0 0;
+  background-color: #574136;
+  content: "";
+  cursor: pointer;
+  transition: background .4s;
+}
+.heart-like-button:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin :100% 100%;
+  width: 80px;
+  height: 125px;
+  border-radius: 40px 40px 0 0;
+  background-color: #574136;
+  content: "";
+  cursor: pointer;
+  transition: background .4s;
+}
+
+.heart-like-button.liked::before,
+.heart-like-button.liked::after {
+  background-color: #d65076;
+}
+.heart-like-button.liked {
+  animation: liked .4s ease;
+}
+@keyframes liked {
+  0% {
+    transform: scale(.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media screen and (max-width: 480px) {
+  #container {
+    height: auto;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
 
 /* HEIGHT / WIDTH UTILS */
 .w-100 {

@@ -16,6 +16,9 @@ import SavedTrips from '../components/SavedTrips';
 
 
 const Profile = () => {
+
+  const loggedIn = Auth.loggedIn();
+
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -55,12 +58,15 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
 
   return (
     <div>
-      <div className="flex-row mb-3">
-      <h2 className="bg-dark text-secondary p-3 display-inline-block">
+      <div className=" profile-follow-cont flex-row mb-3">
+
+      <h2 className=" text-secondary p-3 display-inline-block">
         {userParam ? `${user.username}'s` : 'your'} profile
+        
       </h2>
-      {userParam && (
-  <button className="btn ml-auto" onClick={handleClick}>
+      {userParam, loggedIn && (
+        
+  <button className="btn-follow ml-auto" onClick={handleClick}>
     Follow
   </button>
 )}
@@ -68,10 +74,10 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
 
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
-          <PostList posts={user.posts} title={`${user.username}'s trips...`} />
+          <PostList posts={user.posts} title={`Trips...`} />
         </div>
       </div>
-
+{loggedIn && (   
       <div className="col-12 col-lg-3 mb-3">
     <FriendList
       username={user.username}
@@ -79,8 +85,8 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
       friends={user.friends}
     />
   </div>
-  {/* <div className="mb-3">{!userParam && <PostForm />}</div> */}
-  {/* <div className="mb-3">{!userParam && <SavedTrips/>}</div> */}
+  )}
+ 
   
     </div>
   );

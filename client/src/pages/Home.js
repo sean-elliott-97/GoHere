@@ -43,7 +43,7 @@ const Home = () => {
       <div className="col-12 mb-3">
 
    
-         { showForm ? <PostForm /> : <button onClick={onClick} type="button" class="btn btn-success">New Post</button>  }
+         { showForm ? <PostForm /> : <button onClick={onClick} type="button" class="submit-green  btn-success">New Post</button>  }
         
       </div>
     )}
@@ -51,22 +51,19 @@ const Home = () => {
   {loading ? (
     <div>Loading...</div>
   ) : (
-    <PostList posts={posts} title="Some Feed for Post(s)..." />
+    <PostList posts={posts} title="Latest Posts" />
   )}
 </div>
 
 {loggedIn && userData ? (
   <div className="col-12 col-lg-3 mb-3">
-    {/* {console.log(savedTrips)} */}
-    {/* {console.log(tripData)} */}
-    {console.log(userData)}
-    {console.log(loggedIn)}
+   <div className="friend-cont">
     <FriendList 
       username={userData.me.username}
       friendCount={userData.me.friendCount}
       friends={userData.me.friends}
     />
-
+</div>
   
   </div>
   

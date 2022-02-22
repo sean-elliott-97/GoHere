@@ -14,11 +14,12 @@ const Header = () => {
   return (
     
     <div className="img-cont"><Link to="/"> <img className="go-here-img" src={Logo} /> </Link>
+    <div className="attach">
     <div className="dropdown">
       <button class="dropbtn">\\\</button>
     <header className="dropdown-content">
       
-      <div className="  flex-row justify-space-between-lg justify-center align-center">
+      <div className=" flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
    
         </Link>
@@ -44,6 +45,7 @@ const Header = () => {
         </nav>
       
     </header>
+    </div>
     </div>
     </div>
   );

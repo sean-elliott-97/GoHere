@@ -71,14 +71,13 @@ const PostList = ({ posts, title }) => {
             </p>
             <div className="card-body">
             <Link to={`/post/${post._id}`}>
-                <p>{post.location}</p>
-                <p>{post.cost}</p>
-                <p>{post.pointsOfInterest}</p>
-                <p>{post.transport}</p>
-                <p>{post.extra}</p>
+                <p><span>Location: </span>{post.location}</p>
+                <p><span>Cost: </span>{post.cost}</p>
+                <p><span>Places visited: </span>{post.pointsOfInterest}</p>
+                <p><span>Transportation: </span>{post.transport}</p>
+                <p><span>Summary: </span>{post.extra}</p>
                 <p className="mb-0">
-                Replies: {post.replyCount} || Click to{' '}
-                {post.replyCount ? 'see' : 'start'} the discussion!
+                <span>Replies: </span>{post.replyCount} 
                 </p>
                 </Link>
                 
@@ -86,7 +85,7 @@ const PostList = ({ posts, title }) => {
 
                 <div>
 
-                <button className="btn ml-auto" onClick={() => { handleClick(post) }}>Save Trip</button> 
+                <button className="btn-trip ml-auto" onClick={() => { handleClick(post) }}>Like</button> 
 
                 </div>
 
