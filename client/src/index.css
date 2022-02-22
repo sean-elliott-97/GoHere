@@ -365,6 +365,31 @@ nav a:hover {
 
 }
 
+.post-form {
+display: flex;
+flex-direction: column;
+
+width: 500px;
+
+}
+
+.form-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-cont input {
+  width: 500px;
+ 
+}
+
+.form-cont button {
+  width: 100px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
 .container-fluid {
   width: 92%;
 }

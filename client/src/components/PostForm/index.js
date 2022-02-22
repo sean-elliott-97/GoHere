@@ -115,47 +115,51 @@ const PostForm = () => {
       
   return (
     <div>
-        <div>
+        <div className="post-form">
       <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
-        Character Count: {characterCount}/280
+        
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
-      <form className="flex-row justify-center justify-space-between-md align-stretch"
+      <form className="form-cont flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
-      <textarea
-       placeholder="location?"
+        <p>trip location</p>
+      <input
+       placeholder=""
        value={location}
        className="form-input col-12 col-md-9"
        onChange={handleChange}
-      ></textarea>
+      ></input>
+      <p>cost of trip</p>
       <input
-       placeholder="cost?"
+       placeholder=""
        value={cost} 
        type="number"    
        className="form-input col-12 col-md-9"
        onChange={handleChange4}
       ></input>
-      <textarea
-       placeholder="POI?"
+      <p>places visited</p>
+      <input
+       placeholder=""
        value={pointsOfInterest}
        className="form-input col-12 col-md-9"
        onChange={handleChange2}
-      ></textarea>
-      <textarea
-       placeholder="Transport?"
+      ></input>
+      <p>transportation used</p>
+      <input
+       placeholder=""
        value={transport}
        className="form-input col-12 col-md-9"
        onChange={handleChange3}
-      ></textarea>
+      ></input>
+      <p>other stuff you'd like to add</p>
       <textarea
-       placeholder="Additional?"
+       placeholder=""
        value={extra}
        className="form-input col-12 col-md-9"
        onChange={handleChange5}
       ></textarea>
-      
-        <button className="btn col-12 col-md-3" type="submit">
+      <button className="btn col-12 col-md-3" type="submit">
           Submit
         </button>
       </form>
