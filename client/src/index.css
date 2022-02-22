@@ -532,7 +532,11 @@ width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+
+}
+
+.form-cont p {
+  margin: 0%;
 }
 
 .img-2 {

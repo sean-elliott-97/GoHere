@@ -64,12 +64,13 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         {userParam ? `${user.username}'s` : 'your'} profile
         
       </h2>
-      {userParam, loggedIn && (
+      {userParam  && loggedIn && (
         
   <button className="btn-follow ml-auto" onClick={handleClick}>
     Follow
   </button>
 )}
+
       </div>
 
       <div className="flex-row justify-space-between mb-3">

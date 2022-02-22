@@ -8,7 +8,7 @@ import { QUERY_POSTS, QUERY_ME_BASIC, QUERY_ME } from '../utils/queries';
 import PostList from '../components/PostList';
 import FriendList from '../components/FriendList';
 import PostForm from '../components/PostForm';
-import SavedTrips from '../components/SavedTrips'
+
 
 
 

@@ -1,55 +1,63 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
+import { useMutation, useQuery } from "@apollo/client";
 import Auth from '../../utils/auth';
-
-import { Link } from 'react-router-dom';
-
-
-
-import { useMutation } from '@apollo/client';
+import { SAVE_TRIP, REMOVE_POST } from "../../utils/mutations";
+import { QUERY_ME,QUERY_POSTS } from "../../utils/queries";
 
 
-import { SAVE_TRIP,} from '../../utils/mutations';
-
-
-
-const PostList = ({ posts, title }) => {
-
+const PostList = ({ posts, trips, title }) => {
 
   const loggedIn = Auth.loggedIn();
+  
+  const { loading, data, refetch } = useQuery(QUERY_ME);
+  const user = data?.me || [];
+  console.log(user.savedTrips);
+
+  
+  const [deletePost, { error }] = useMutation(REMOVE_POST,{refetchQueries:[QUERY_POSTS]});
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
 
   const [saveTrip] = useMutation(SAVE_TRIP);
- 
-  
-  
+  // const [removePost]=useMutation(REMOVE_POST);
+  const [show, setShow] = useState(true);
+
+  console.log(posts);
+  // console.log(user.savedTrips[0]);
+
   const handleClick = async (post) => {
-  
-    console.log(post._id)
+    // console.log(post._id)
 
     try {
       await saveTrip({
-        variables: { id: post._id }
+        variables: { id: post._id },
       });
     } catch (e) {
       console.error(e);
     }
   };
-  // const handleRemovePost = async(post)=>{
-  //   console.log(post._id);
-  //   try{
-  //     await removePost({_id:post._id}
-  //   );
-  // }catch(e){
-  //   console.error(e);
-  // }
-  // }
+  
+  const handleRemovePost = async (post) => {
+   
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      return false;
+    }
+    try {
+      await deletePost({
+        variables: { postId: post._id },
+      });
+    } catch (e) {
+      console.error(e);
+    }
+    
+  };
 
-  // if (!posts.length) {
-  //   return <h3>No trips posted..</h3>;
-  // }
-
-  const [showSaved, setShowSaved] = React.useState(false)
-  const onClick = () => setShowSaved(true)
+  
 
 
   return (
@@ -86,13 +94,22 @@ const PostList = ({ posts, title }) => {
                 <div>
 
                 <button className="btn-trip ml-auto" onClick={() => { handleClick(post) }}>Like</button> 
+                
 
                 </div>
 
+                
+
                 )}
                
+               <button
+              onClick={() => {
+                handleRemovePost(post);
+              }}
+            >
+              Remove Post
+              </button>
             
-            {console.log(post._id)}
             </div>
             {/* <button onClick={()=>{handleRemovePost(post)}}>Remove Post</button> */}
           </div>

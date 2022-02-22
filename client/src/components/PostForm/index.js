@@ -107,11 +107,9 @@ const PostForm = () => {
         }
       }
       
-      //const { data } = useQuery(QUERY_ME);
-      //const user = data?.me || [];
-      //const userData = user.savedTrips;
-      //console.log(userData)
-   
+      const [hideForm, setHideForm] = React.useState(true)
+      const onClick = () => setHideForm(false)
+    
      
     
       
@@ -165,9 +163,8 @@ const PostForm = () => {
       <button className="btn-submit col-12 col-md-3" type="submit">
           Submit
         </button>
-        <button className="btn-close col-12 col-md-3">
-          Close
-        </button>
+        { hideForm ? <PostForm /> : <button onClick={onClick} type="button" className="btn-close col-12 col-md-3">Close</button>  }
+        
         </div>
       </form>
       </div>
