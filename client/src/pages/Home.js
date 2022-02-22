@@ -61,7 +61,7 @@ const Home = () => {
     {/* {console.log(tripData)} */}
     {console.log(userData)}
     {console.log(loggedIn)}
-    <FriendList
+    <FriendList 
       username={userData.me.username}
       friendCount={userData.me.friendCount}
       friends={userData.me.friends}

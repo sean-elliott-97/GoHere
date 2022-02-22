@@ -10,21 +10,27 @@ const Header = () => {
     Auth.logout();
   };
 
+// <img className="go-here-img" src={Logo} />
   return (
-    <header className="header-cont mb-4 py-2 flex-row align-center">
-      <div className=" flex-row justify-space-between-lg justify-center align-center">
+    <div className="dropdown">
+      <button class="dropbtn">\\\</button>
+    <header className="dropdown-content">
+      
+      <div className="  flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
-          <img className="go-here-img" src={Logo} />
+   
         </Link>
-
-        <nav className="text-center">
+      </div>
+        <nav className="nav-links">
+        <Link to="/">Home</Link>
           {Auth.loggedIn() ? (
             <>
               <Link to="/profile">Profile</Link>
+             
+              <Link to ="/savedTrips">Saved Trips</Link>
               <a href="/" onClick={logout}>
                 Logout
               </a>
-              <Link to ="/savedTrips">Saved Trips</Link>
             </>
           ) : (
             <>
@@ -34,8 +40,9 @@ const Header = () => {
             </>
           )}
         </nav>
-      </div>
+      
     </header>
+    </div>
   );
 };
 
