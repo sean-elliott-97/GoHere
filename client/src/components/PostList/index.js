@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useParams } from "react-router-dom";
 
 import { useMutation, useQuery } from "@apollo/client";
 import Auth from "../../utils/auth";
@@ -9,7 +9,8 @@ import { QUERY_ME, QUERY_POSTS } from "../../utils/queries";
 const PostList = ({ posts, trips, title }) => {
  
  
-  const loggedIn = Auth.loggedIn(); //display buttons
+  const loggedIn = Auth.loggedIn();
+  const { username: userParam } = useParams(); //display buttons
   // const [showRemove, setShowRemove] = useState(true);
   // const [showSave, setShowSave] = useState(true);
   const { loading, data, refetch } = useQuery(QUERY_ME);
@@ -123,7 +124,7 @@ const PostList = ({ posts, trips, title }) => {
                 </p>
                 </Link>
                 
-                {loggedIn && (   
+                {loggedIn &&  (   
 
                 <div>
 

@@ -11,14 +11,13 @@ import PostForm from '../components/PostForm';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND } from '../utils/mutations';
-import SavedTrips from '../components/SavedTrips';
+
 
 
 
 const Profile = () => {
 
   const loggedIn = Auth.loggedIn();
-
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -30,9 +29,9 @@ const Profile = () => {
   const user = data?.me || data?.user || {};
 
   // redirect to personal profile page if username is the logged-in user's
-if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-  return <Redirect to="/profile" />;
-}
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Redirect to="/profile" />;
+  }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -41,7 +40,7 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
   if (!user?.username) {
     return (
       <h4>
-        You need to be logged in to see this page.  Sign up or log in!
+        You need to be logged in to see this page. Use the navigation links above to sign up or log in!
       </h4>
     );
   }
@@ -55,7 +54,6 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
       console.error(e);
     }
   };
-
   return (
     <div>
       <div className=" profile-follow-cont flex-row mb-3">
