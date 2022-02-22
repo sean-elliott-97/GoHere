@@ -10,8 +10,10 @@ const Header = () => {
     Auth.logout();
   };
 
-// <img className="go-here-img" src={Logo} />
+
   return (
+    
+    <div className="img-cont"><Link to="/"> <img className="go-here-img" src={Logo} /> </Link>
     <div className="dropdown">
       <button class="dropbtn">\\\</button>
     <header className="dropdown-content">
@@ -42,6 +44,7 @@ const Header = () => {
         </nav>
       
     </header>
+    </div>
     </div>
   );
 };
