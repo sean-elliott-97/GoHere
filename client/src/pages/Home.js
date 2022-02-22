@@ -39,7 +39,7 @@ const Home = () => {
   {loading ? (
     <div>Loading...</div>
   ) : (
-    <PostList posts={posts} title="Some Feed for Post(s)..." />
+    <PostList posts={posts} trips={sData}title="Some Feed for Post(s)..." />
   )}
 </div>
 
