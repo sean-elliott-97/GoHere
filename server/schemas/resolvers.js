@@ -179,10 +179,16 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be signed in to remove a friend");
     },
-    
-
- 
-    }}
+    deletePost: async (parent, { postId }, context) => {
+      if (context.user) {
+        const deletePost = await Post.findOneAndDelete(
+          // { _id: context.user_id },
+          { $pull: { _id: postId } }
+        );
+        return deletePost;
+      }
+    },
+  },
+};
 
 module.exports = resolvers;
-

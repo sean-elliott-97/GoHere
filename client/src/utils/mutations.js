@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -40,48 +40,52 @@ export const ADD_FRIEND = gql`
 
 export const SAVE_TRIP = gql`
   mutation saveTrip($id: ID!) {
-    saveTrip(postId: $id) {    
-      
-        _id
-        location
-        cost
-        pointsOfInterest
-        transport
-        extra
-
+    saveTrip(postId: $id) {
+      _id
+      location
+      cost
+      pointsOfInterest
+      transport
+      extra
     }
   }
 `;
-export const REMOVE_TRIP=gql`
-mutation removeTrip($_id:ID!, $index: Int!){
-  removeTrip(_id:$_id, index:$index){
-    _id
-    cost
-    extra
-    location
-    pointsOfInterest
-    transport
-
+export const REMOVE_TRIP = gql`
+  mutation removeTrip($_id: ID!, $index: Int!) {
+    removeTrip(_id: $_id, index: $index) {
+      _id
+      cost
+      extra
+      location
+      pointsOfInterest
+      transport
+    }
   }
-}
-`
-export const REMOVE_FRIEND=gql`
-mutation removeFriend($_id:ID!,$index:Int!){
-  removeFriend(_id:$_id,index:$index){
-    username
-    email
+`;
+export const REMOVE_FRIEND = gql`
+  mutation removeFriend($_id: ID!, $index: Int!) {
+    removeFriend(_id: $_id, index: $index) {
+      username
+      email
+    }
   }
-}
-
-
-
-
-
-`
+`;
 
 export const ADD_POST = gql`
-  mutation addPost($location: String!, $cost: Int!, $pointsOfInterest: String!, $transport: String!, $extra: String!) {
-    addPost(location: $location, cost: $cost, pointsOfInterest: $pointsOfInterest, transport: $transport, extra: $extra) {
+  mutation addPost(
+    $location: String!
+    $cost: Int!
+    $pointsOfInterest: String!
+    $transport: String!
+    $extra: String!
+  ) {
+    addPost(
+      location: $location
+      cost: $cost
+      pointsOfInterest: $pointsOfInterest
+      transport: $transport
+      extra: $extra
+    ) {
       _id
       location
       cost
@@ -111,3 +115,10 @@ export const ADD_REPLY = gql`
   }
 `;
 
+export const REMOVE_POST = gql`
+  mutation deletePost($postId: ID!) {
+    deletePost(postId: $postId) {
+      _id
+    }
+  }
+`;

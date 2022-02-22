@@ -54,7 +54,7 @@ type Mutation {
   saveTrip(postId: ID!): Post
   removeTrip(_id:ID!, index: Int):Post
   removeFriend(_id:ID!,index:Int):User
-  
+  deletePost(postId:ID!):Post
   
 }
 

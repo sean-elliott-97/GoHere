@@ -13,7 +13,7 @@ import Auth from "../../utils/auth";
 import {REMOVE_TRIP} from '../../utils/mutations'
 import { useMutation, useQuery, } from "@apollo/client";
 
-import { QUERY_ME } from "../../utils/queries";
+import { QUERY_ME,QUERY_POSTS } from "../../utils/queries";
 
 const SavedTrips = () => {
   
@@ -27,12 +27,11 @@ const SavedTrips = () => {
   ]},);
   const user = data?.me || [];
 
-  //console.log(user);
+  console.log(user);
 
   // create function that accepts the trip's mongo _id value as param and deletes the trip from the database
   const handleDeleteTrip = async (_id,index) => {
-    console.log((_id));
-    console.log(index);
+    
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
