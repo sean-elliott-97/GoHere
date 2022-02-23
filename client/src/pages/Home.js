@@ -1,9 +1,9 @@
 import React from 'react';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
-
 import { useQuery } from '@apollo/client';
-import { QUERY_POSTS, QUERY_ME_BASIC, QUERY_ME } from '../utils/queries';
+import { QUERY_POSTS, QUERY_ME_BASIC, QUERY_ME, QUERY_USER } from '../utils/queries';
+import { useParams } from 'react-router-dom';
 
 import PostList from '../components/PostList';
 import FriendList from '../components/FriendList';
@@ -14,6 +14,8 @@ import PostForm from '../components/PostForm';
 
 
 const Home = () => {
+
+
 
   const loggedIn = Auth.loggedIn();
 
@@ -39,7 +41,7 @@ const Home = () => {
     <main>
       
       <div className="landing-buttons">
-        <h1 className="home-title">Hello. Welcome to goHere,</h1>
+        <h1 className="home-title">hello. welcome to goHere,</h1>
         <h4>where you can find your next destination at a button's click.</h4>
         {!loggedIn && (
         <div className="home-btn-cont">
@@ -61,9 +63,9 @@ const Home = () => {
     )}
     <div className={`post-list-margin col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
   {loading ? (
-    <div>Loading...</div>
+    <div>loading...</div>
   ) : (
-    <PostList posts={posts} title="Latest posts..." />
+    <PostList posts={posts} title="latest posts..." />
   )}
 </div>
 

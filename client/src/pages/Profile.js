@@ -11,13 +11,14 @@ import PostForm from '../components/PostForm';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND } from '../utils/mutations';
-
+import SavedTrips from '../components/SavedTrips';
 
 
 
 const Profile = () => {
 
   const loggedIn = Auth.loggedIn();
+  
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -29,9 +30,9 @@ const Profile = () => {
   const user = data?.me || data?.user || {};
 
   // redirect to personal profile page if username is the logged-in user's
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Redirect to="/profile" />;
-  }
+if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+  return <Redirect to="/profile" />;
+}
 
   if (loading) {
     return <div>Loading...</div>;
@@ -73,7 +74,8 @@ const Profile = () => {
 
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
-          <PostList posts={user.posts} title={`Trips...`} />
+          <h3 className="trips-margin">trips...</h3>
+          <PostList posts={user.posts} />
         </div>
       </div>
 {loggedIn && (   

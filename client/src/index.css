@@ -37,6 +37,7 @@ body {
 }
 
 
+
 body {
   margin: 0;
   padding: 0;
@@ -47,8 +48,26 @@ body {
   color: var(--dark);
 
 }
+
+.pre-heart {
+  height: 50px;
+
+}
+.pre-heart:hover {
+  transition: all 0.2s;
+  cursor: pointer;
+  height: 60px;
+  
+
+}
+
+.post-heart {
+  margin-top: 10px;
+  height: 50px;
+  
+}
+
 .header-cont{
- 
  display: flex;
  width: 100%; 
 justify-content: center;
@@ -68,6 +87,7 @@ justify-content: center;
   margin-top: 4px;
   margin-right: 24px;
   transition: all 0.5s;
+
  
 }
 
@@ -278,6 +298,52 @@ nav a:hover {
   cursor: pointer;
 }
 
+.btn-delete{
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius);
+  border: none;
+  background-color: red;
+  transition: all 0.5s;
+  width: 100px;
+  color: white;
+ 
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 15px;
+}
+
+.btn-cont-list{
+  height: 70px;  
+  display: flex;
+  flex-direction: row;
+  box-shadow: 8px 8px 16px 0px rgba(0,0,0,0.2);
+  justify-content: space-around;
+  align-items: center;
+  
+}
+
+.cont-list-card {
+padding: 10px;
+background-color: white;
+margin-bottom: 30px;
+}
+
+
+
+.list-cont {
+ 
+  width: 550px;
+ 
+}
+
+.trips-margin {
+  margin-bottom: 30px;
+}
 .btn-submit {
 
   padding: 0.5rem 1.2rem;
@@ -374,7 +440,11 @@ cursor: pointer;
 
 .home-title {
   background-color: whitesmoke;
-  width: 450px;
+  width: fit-content;
+  padding-right: 6px;
+  padding-left: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .home-btn-cont {
@@ -416,18 +486,42 @@ span {
   color: var(--dark);
 }
 
-.card-header {
-  color: white;
-  margin: 0;
-  background-color: var(--dark);
-  padding: 0.625rem;
-  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
-}
 
-.card-body {
+.card-header {
+  display: flex;
+  flex-direction: column;
   padding: 2.5%;
   font-size: 1.4rem;
+  height: 70px;
+  color: white;
+  margin: 0;
+  box-shadow: 16px 16px 16px 16px rgba(0,0,0,0.2);
+  padding: 0.625rem;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
  
+}
+
+.card-header-text {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  width: fit-content;
+  
+}
+
+.card-header-text:hover {
+  background-color: rgb(27, 25, 25);
+  transition: all 0.1s;
+  padding-left: 14px;
+  padding-right: 14px;
+  color: white;
+}
+.date-text {
+  
+  font-style: italic;
+  font-size: 15px;
+  padding-left: 10px;
+  
 }
 
 /* FORM */
@@ -570,6 +664,14 @@ width: 500px;
   color: white;
   
 }
+
+.mb-0 .link-p:hover {
+  background-color: rgb(27, 25, 25);
+  transition: all 0.5s;
+  padding: 8px;
+  color: white;
+  
+}
 .img-2 {
  
   position: relative;
@@ -615,66 +717,6 @@ width: 500px;
 
 
 
-.heart-like-button {
-  position: relative;
-  width: 160px;
-  height: 130px;
-}
-.heart-like-button:before {
-  position: absolute;
-  top: 0;
-  left: 80px;
-  transform: rotate(-45deg);
-  transform-origin: 0 100%;
-  width: 80px;
-  height: 125px;
-  border-radius: 40px 40px 0 0;
-  background-color: #574136;
-  content: "";
-  cursor: pointer;
-  transition: background .4s;
-}
-.heart-like-button:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: rotate(45deg);
-  transform-origin :100% 100%;
-  width: 80px;
-  height: 125px;
-  border-radius: 40px 40px 0 0;
-  background-color: #574136;
-  content: "";
-  cursor: pointer;
-  transition: background .4s;
-}
-
-.heart-like-button.liked::before,
-.heart-like-button.liked::after {
-  background-color: #d65076;
-}
-.heart-like-button.liked {
-  animation: liked .4s ease;
-}
-@keyframes liked {
-  0% {
-    transform: scale(.8);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@media screen and (max-width: 480px) {
-  #container {
-    height: auto;
-  }
-  h1 {
-    font-size: 2.5rem;
-  }
-}
 
 
 /* HEIGHT / WIDTH UTILS */

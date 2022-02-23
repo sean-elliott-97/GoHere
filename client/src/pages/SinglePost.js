@@ -28,7 +28,7 @@ const SinglePost = props => {
       <span style={{ fontWeight: 700 }} className="text-light">
         {post.username}
       </span>{' '}
-      post on {post.createdAt}
+       {post.createdAt}
     </p>
     <div className="card-body">
     <p>{post.location}</p>

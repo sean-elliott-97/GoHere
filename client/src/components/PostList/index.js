@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Link, Redirect, useParams } from "react-router-dom";
+import { Link, Redirect, useParams, } from "react-router-dom";
 
 import { useMutation, useQuery } from "@apollo/client";
 import Auth from "../../utils/auth";
 import { SAVE_TRIP, REMOVE_POST } from "../../utils/mutations";
-import { QUERY_ME, QUERY_POSTS } from "../../utils/queries";
+import { QUERY_ME, QUERY_POSTS,  } from "../../utils/queries";
+import Pre from '../../images/pre-heart.png'
+import Post from '../../images/post-heart.png'
 
-const PostList = ({ posts, trips, title }) => {
- 
- 
-  const loggedIn = Auth.loggedIn();
-  const { username: userParam } = useParams(); //display buttons
+const PostList = ({ posts, trips, title, userParam}) => {
+  
+  //display buttons
   // const [showRemove, setShowRemove] = useState(true);
   // const [showSave, setShowSave] = useState(true);
-  const { loading, data, refetch } = useQuery(QUERY_ME);
-
+  
+  const { loading, data, refetch } = useQuery(QUERY_ME,);
+  const [postLists, setPostLists] = useState(posts)
   const user = data?.me || [];
 
   // //array for ids present in savedTrips and posts
@@ -56,9 +57,7 @@ const PostList = ({ posts, trips, title }) => {
     }
   //}
 
-  const [deletePost, { error }] = useMutation(REMOVE_POST, {
-    refetchQueries: [QUERY_POSTS],
-  });
+  const [deletePost, { error }] = useMutation(REMOVE_POST, );
 
   useEffect(() => {
     refetch();
@@ -67,7 +66,7 @@ const PostList = ({ posts, trips, title }) => {
   const [saveTrip] = useMutation(SAVE_TRIP);
 
   const handleClick = async (post) => {
-   
+   refetch();
     try {
       await saveTrip({
         variables: { id: post._id },
@@ -79,6 +78,7 @@ const PostList = ({ posts, trips, title }) => {
   };
 
   const handleRemovePost = async (post) => {
+   
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
       return false;
@@ -87,6 +87,7 @@ const PostList = ({ posts, trips, title }) => {
       await deletePost({
         variables: { postId: post._id },
       });
+      setPostLists(postLists.filter(savedPost=>savedPost._id!==post._id))
     } catch (e) {
       console.error(e);
     }
@@ -98,58 +99,68 @@ const PostList = ({ posts, trips, title }) => {
   return (
     <div>
       <h3>{title}</h3>
+      <div className="list-cont">
       {posts &&
         posts.map(post => (
           
-          <div key={post._id} className="card mb-3">
+          <div  key={post._id}>
             <p className="card-header">
             <Link
                 to={`/profile/${post.username}`}
                 style={{ fontWeight: 700 }}
-                className="text-light"
+                className="card-header-text"
             >
                 {post.username}
             </Link>{' '}
-            post on {post.createdAt}
+
+            <p className="date-text"> {post.createdAt}</p>  
             </p>
-            <div className="card-body">
-            <Link to={`/post/${post._id}`}>
+            <div className="cont-list-card">
+            <Link className="cont-list-card" to={`/post/${post._id}`}>
                 <p><span>Location: </span>{post.location}</p>
                 <p><span>Cost: </span>{post.cost}</p>
                 <p><span>Places visited: </span>{post.pointsOfInterest}</p>
                 <p><span>Transportation: </span>{post.transport}</p>
                 <p><span>Summary: </span>{post.extra}</p>
-                <p className="mb-0">
-                <span>Replies: </span>{post.replyCount} 
-                </p>
                 </Link>
+                <div className="btn-cont-list">
+                <p className="mb-0">
+                <Link className="link-p" to={`/post/${post._id}`}>Reply:</Link>{post.replyCount} 
+                </p>
+                {!loading && !userData(post._id)  ? (
+                <Link
+                  className="pre-heart"
+                  onClick={() => {
+                    handleClick(post);
+                    console.log(post._id);
+                  }}
+                >
+                <img className="pre-heart" src={Pre} />
+                </Link>
+              ) : (
+              <img className="post-heart" src={Post} />
                 
-                {loggedIn &&  (   
-
-                <div>
-
-                <button className="btn-trip ml-auto" onClick={() => { handleClick(post) }}>Like</button> 
+              )}
+                
+                
+                  
                 <button
-              onClick={() => {
-                handleRemovePost(post);
-              }}
-            >
-              Remove Post
-              </button>
+                className="btn-delete"
+                  onClick={() => {
+                    handleRemovePost(post);
+                  }}
+                >
+                  Remove Post
+                </button>
                 
-
-                </div>
-
-                
-
-                )}
+              </div>
                
-              
             
             </div>
             {/* <button onClick={()=>{handleRemovePost(post)}}>Remove Post</button> */}
           </div>
         ))}
+    </div>
     </div>
   );
 };

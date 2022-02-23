@@ -60,7 +60,7 @@ const SavedTrips = () => {
 
   return (
     <div>
-      <h1>Saved Trips</h1>
+      <h1>saved trips</h1>
       {user.savedTrips.map((trip,index) => (
         <div className="saved-cont" key={trip._id}>
        
