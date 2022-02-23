@@ -131,7 +131,7 @@ const PostForm = (hide) => {
       ></input>
       <p>cost of trip</p>
       <input
-       placeholder=""
+       placeholder="$"
        value={cost} 
        type="number"    
        className="form-input col-12 col-md-9"
