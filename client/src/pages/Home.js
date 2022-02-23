@@ -54,17 +54,19 @@ const Home = () => {
         <div className="landing-buttons">
         <h1 className="home-title">hello. welcome to goHere,</h1>
         <h4>where you can find your next destination at a button's click.</h4>
+        <div className="home-btn-cont">
+<Link className="landing-link" to="/login">Login</Link>
+<Link className="landing-link" to="/signup">Sign Up</Link>
+</div>
                 </div>
+                
       
 
 ) : (  <div className="landing-buttons">
 <h1 className="home-title">hello {meData}. welcome to goHere,</h1>
 <h4>where you can find your next destination at a button's click.</h4>
 
-<div className="home-btn-cont">
-<Link className="landing-link" to="/login">Login</Link>
-<Link className="landing-link" to="/signup">Sign Up</Link>
-</div>
+
 </div>
         
       )}

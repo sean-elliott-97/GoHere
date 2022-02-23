@@ -60,7 +60,7 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
       <div className=" profile-follow-cont flex-row mb-3">
 
       <h2 className=" text-secondary p-3 display-inline-block">
-        {userParam ? `viewing ${user.username}'s` : 'your'} profile
+        {userParam ? `viewing ${user.username}'s` : 'your'} profile, {user.username}
         
       </h2>
       {userParam  && loggedIn && (

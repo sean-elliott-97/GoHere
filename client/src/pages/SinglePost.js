@@ -32,11 +32,11 @@ const SinglePost = props => {
       <p className="date-text"> {post.createdAt}</p>
     </p>
     <div className="cont-list-card">
-    <p>{post.location}</p>
-    <p>{post.cost}</p>
-    <p>{post.pointsOfInterest}</p>
-    <p>{post.transport}</p>
-    <p>{post.extra}</p>
+    <p><span>location: </span>{post.location}</p>
+    <p><span>cost: </span>{post.cost}</p>
+    <p><span>points of interest: </span>{post.pointsOfInterest}</p>
+    <p><span>transportation: </span>{post.transport}</p>
+    <p><span>summary: </span>{post.extra}</p>
     </div>
   </div>
 

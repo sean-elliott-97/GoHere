@@ -6,7 +6,7 @@ const ReplyList = ({ replies }) => {
 
     <div className="list-cont">
   <div className="card-header-2">
-    <span> ----------------- REPLIES 📩 ------------------</span>
+    <span> ----------------- replies 📩 ------------------</span>
   </div>
   <div className="cont-list-card">
     {replies &&

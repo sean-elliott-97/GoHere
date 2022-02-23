@@ -10,6 +10,7 @@ import Post from '../../images/post-heart.png'
 
 const PostList = ({ posts, trips, title, userParam}) => {
   
+  const loggedIn = Auth.loggedIn();
   //display buttons
   // const [showRemove, setShowRemove] = useState(true);
   // const [showSave, setShowSave] = useState(true);
@@ -66,7 +67,7 @@ const PostList = ({ posts, trips, title, userParam}) => {
   const [saveTrip] = useMutation(SAVE_TRIP);
 
   const handleClick = async (post) => {
-   refetch();
+   
     try {
       await saveTrip({
         variables: { id: post._id },
@@ -74,7 +75,7 @@ const PostList = ({ posts, trips, title, userParam}) => {
     } catch (e) {
       console.error(e);
     }
-
+    refetch();
   };
 
   const handleRemovePost = async (post) => {
@@ -88,9 +89,12 @@ const PostList = ({ posts, trips, title, userParam}) => {
         variables: { postId: post._id },
       });
       setPostLists(postLists.filter(savedPost=>savedPost._id!==post._id))
+      refetch();
     } catch (e) {
       console.error(e);
     }
+
+   
   };
 
   
@@ -117,17 +121,17 @@ const PostList = ({ posts, trips, title, userParam}) => {
             </p>
             <div className="cont-list-card">
             <Link className="cont-list-card" to={`/post/${post._id}`}>
-                <p><span>Location: </span>{post.location}</p>
-                <p><span>Cost: </span>{post.cost}</p>
-                <p><span>Places visited: </span>{post.pointsOfInterest}</p>
-                <p><span>Transportation: </span>{post.transport}</p>
-                <p><span>Summary: </span>{post.extra}</p>
+            <p><span>location: </span>{post.location}</p>
+            <p><span>cost: </span>{post.cost}</p>
+            <p><span>points of interest: </span>{post.pointsOfInterest}</p>
+            <p><span>transportation: </span>{post.transport}</p>
+            <p><span>summary: </span>{post.extra}</p>
                 </Link>
                 <div className="btn-cont-list">
                 <p className="mb-0">
                 <Link className="link-p" to={`/post/${post._id}`}>Reply:</Link>{post.replyCount} 
                 </p>
-                {!loading && !userData(post._id)  ? (
+                {!loggedIn && !loading && !userData(post._id)  ? (
                 <Link
                   className="pre-heart"
                   onClick={() => {
