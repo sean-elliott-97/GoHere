@@ -20,7 +20,7 @@ const resolvers = {
     },
     posts: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Post.find(params).sort({ createdAt: -1 });
+      return Post.find(params)
     },
     post: async (parent, { _id }) => {
       return Post.findOne({ _id });
@@ -182,8 +182,8 @@ const resolvers = {
     deletePost: async (parent, { postId }, context) => {
       if (context.user) {
         const deletePost = await Post.findOneAndDelete(
-          // { _id: context.user_id },
-          { $pull: { _id: postId } }
+          
+          { $pull: { id: postId } }
         );
         return deletePost;
       }

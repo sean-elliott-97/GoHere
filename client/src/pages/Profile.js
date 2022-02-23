@@ -79,8 +79,7 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
       friends={user.friends}
     />
   </div>
-  {/* <div className="mb-3">{!userParam && <PostForm />}</div> */}
-  {/* <div className="mb-3">{!userParam && <SavedTrips/>}</div> */}
+ 
   
     </div>
   );

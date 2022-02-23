@@ -10,8 +10,8 @@ const PostList = ({ posts, trips, title }) => {
   //display buttons
   // const [showRemove, setShowRemove] = useState(true);
   // const [showSave, setShowSave] = useState(true);
-  const { loading, data, refetch } = useQuery(QUERY_ME);
-
+  const { loading, data, refetch } = useQuery(QUERY_ME,);
+  const [postLists, setPostLists] = useState(posts)
   const user = data?.me || [];
 
   // //array for ids present in savedTrips and posts
@@ -53,9 +53,7 @@ const PostList = ({ posts, trips, title }) => {
     }
   //}
 
-  const [deletePost, { error }] = useMutation(REMOVE_POST, {
-    refetchQueries: [QUERY_POSTS],
-  });
+  const [deletePost, { error }] = useMutation(REMOVE_POST, );
 
   useEffect(() => {
     refetch();
@@ -64,7 +62,7 @@ const PostList = ({ posts, trips, title }) => {
   const [saveTrip] = useMutation(SAVE_TRIP);
 
   const handleClick = async (post) => {
-   
+   refetch();
     try {
       await saveTrip({
         variables: { id: post._id },
@@ -76,6 +74,7 @@ const PostList = ({ posts, trips, title }) => {
   };
 
   const handleRemovePost = async (post) => {
+   
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
       return false;
@@ -84,6 +83,7 @@ const PostList = ({ posts, trips, title }) => {
       await deletePost({
         variables: { postId: post._id },
       });
+      setPostLists(postLists.filter(savedPost=>savedPost._id!==post._id))
     } catch (e) {
       console.error(e);
     }
@@ -92,8 +92,8 @@ const PostList = ({ posts, trips, title }) => {
   return (
     <div>
       <h3>{title}</h3>
-      {posts &&
-        posts.map((post) => (
+      {postLists &&
+        postLists.map((post) => (
           <div key={post._id} className="card mb-3">
             <p className="card-header">
               <Link
