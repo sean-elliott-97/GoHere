@@ -122,7 +122,7 @@ const userParameters = userParam && userParam.userParam;
             <div className="cont-list-card">
             <Link className="cont-list-card" to={`/post/${post._id}`}>
             <p><span>location: </span>{post.location}</p>
-            <p><span>cost: </span>{post.cost}</p>
+            <p><span>cost: $</span>{post.cost}</p>
             <p><span>points of interest: </span>{post.pointsOfInterest}</p>
             <p><span>transportation: </span>{post.transport}</p>
             <p><span>summary: </span>{post.extra}</p>
