@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 const ReplyList = ({ replies }) => {
   return (
 
-    <div className="card mb-3">
-  <div className="card-header">
-    <span className="text-light">Replies</span>
+    <div className="list-cont">
+  <div className="card-header-2">
+    <span> ----------------- REPLIES 📩 ------------------</span>
   </div>
-  <div className="card-body">
+  <div className="cont-list-card">
     {replies &&
       replies.map(reply => (
-        <p className="pill mb-3" key={reply._id}>
-          {reply.replyBody} {'// '}
-          <Link to={`/profile/${reply.username}`} style={{ fontWeight: 700 }}>
-            {reply.username} on {reply.createdAt}
+        <p key={reply._id}>
+          {reply.replyBody} <br></br>{' '}
+          <Link to={`/profile/${reply.username}`} style={{ fontWeight: 700, fontSize: 16 }}>
+          <span className="card-header-text-2">{reply.username}</span>on {reply.createdAt}
           </Link>
         </p>
       ))}

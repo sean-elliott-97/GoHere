@@ -23,14 +23,15 @@ const SinglePost = props => {
 
   return (
     <div>
-  <div className="card mb-3">
+      <h3 className="single-post-title">viewing {post.username}'s trip..</h3>
+  <div className="list-cont">
     <p className="card-header">
-      <span style={{ fontWeight: 700 }} className="text-light">
+      <span style={{ fontWeight: 700 }} className="card-header-text">
         {post.username}
       </span>{' '}
-       {post.createdAt}
+      <p className="date-text"> {post.createdAt}</p>
     </p>
-    <div className="card-body">
+    <div className="cont-list-card">
     <p>{post.location}</p>
     <p>{post.cost}</p>
     <p>{post.pointsOfInterest}</p>

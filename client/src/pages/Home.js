@@ -13,6 +13,7 @@ import PostForm from '../components/PostForm';
 
 
 
+
 const Home = () => {
 
 
@@ -24,32 +25,49 @@ const Home = () => {
   const { loading, data, } = useQuery(QUERY_POSTS);
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
   const { data: userData, } = useQuery(QUERY_ME_BASIC);
+
   
-  const posts = data?.posts|| [];
+  const posts = data?.posts || [];
+
+  const meData = userData && userData.me.username
+ console.log(meData)
+  
+
+
+
   // const savedTrips = data?.savedTrips||[];
   //PostList(posts)
+
+  
+  
  
   const [showForm, setShowForm] = React.useState(false)
   const onClick = () => setShowForm(true)
   
-  
-  
+ 
   
  
  
   return (
     <main>
-      
-      <div className="landing-buttons">
+      {!loggedIn ? (
+        <div className="landing-buttons">
         <h1 className="home-title">hello. welcome to goHere,</h1>
         <h4>where you can find your next destination at a button's click.</h4>
-        {!loggedIn && (
-        <div className="home-btn-cont">
-        <Link className="landing-link" to="/login">Login</Link>
-        <Link className="landing-link" to="/signup">Sign Up</Link>
-        </div>
-        )}
-      </div>
+                </div>
+      
+
+) : (  <div className="landing-buttons">
+<h1 className="home-title">hello {meData}. welcome to goHere,</h1>
+<h4>where you can find your next destination at a button's click.</h4>
+
+<div className="home-btn-cont">
+<Link className="landing-link" to="/login">Login</Link>
+<Link className="landing-link" to="/signup">Sign Up</Link>
+</div>
+</div>
+        
+      )}
        
    <div className="flex-row justify-space-between">
     {loggedIn && (   
