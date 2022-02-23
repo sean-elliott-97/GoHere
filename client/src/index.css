@@ -364,6 +364,33 @@ margin-bottom: 30px;
   cursor: pointer;
 }
 
+.btn-submit-following {
+
+  padding: 0.5rem 1.2rem;
+  
+  border: none;
+  color: var(--dark);
+  outline: none;
+  background-color: rgb(27, 25, 25);
+  transition: all 0.5s;
+  color: rgb(255, 255, 255);
+  background-color: rgb(37, 162, 219);
+  cursor: pointer;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+
+.btn-submit-following:hover {
+  padding: 12px;
+}
+
+.following-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 200px;
+}
+
 .btn-follow {
   padding: 0.5rem 1.2rem;
   border-radius: var(--border-radius);
@@ -442,7 +469,7 @@ cursor: pointer;
 .profile-follow-cont {
   display: flex;
   flex-direction: row;
-  width: 500px;
+  width: 550px;
   align-items: center;
   
   

@@ -7,12 +7,12 @@ const FriendList = ({ friendCount, username, friends }) => {
   }
 
   return (
-    <div>
+    <div className="following-cont">
       <h5>
-        Following {friendCount} 
+        following {friendCount} 
       </h5>
       {friends.map(friend => (
-        <button className="btn-submit w-100 display-block mb-2" key={friend._id}>
+        <button className="btn-submit-following " key={friend._id}>
           <Link to={`/profile/${friend.username}`}>{friend.username}</Link>
         </button>
       ))}
