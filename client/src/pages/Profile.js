@@ -56,7 +56,7 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     }
   };
   return (
-    <div>
+    <div className="profile-container">
       <div className=" profile-follow-cont flex-row mb-3">
 
       <h2 className=" text-secondary p-3 display-inline-block">
@@ -70,7 +70,7 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
   </button>
 )}
 
-      </div>
+      
 
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
@@ -78,8 +78,9 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
           <PostList posts={user.posts} />
         </div>
       </div>
+      </div>
 {loggedIn && (   
-      <div className="col-12 col-lg-3 mb-3">
+      <div className=" margin-profile col-12 col-lg-3 mb-3">
     <FriendList
       username={user.username}
       friendCount={user.friendCount}

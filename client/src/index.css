@@ -469,11 +469,29 @@ cursor: pointer;
 .profile-follow-cont {
   display: flex;
   flex-direction: row;
-  width: 550px;
+  width: 600px;
   align-items: center;
   
   
 }
+
+.margin-profile {
+  margin-top: 200px;
+}
+
+.profile-container{
+display: flex;
+gap: 250px;
+
+}
+
+
+.temp-div{
+  background-color: blueviolet;
+  width: 50px;
+  font-size: 10px;
+}
+
 
 
 .home-title {
