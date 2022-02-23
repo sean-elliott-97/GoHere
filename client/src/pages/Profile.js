@@ -85,6 +85,7 @@ if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
       friendCount={user.friendCount}
       friends={user.friends}
     />
+    <PostList userParam={userParam} />
   </div>
   )}
  

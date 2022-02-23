@@ -10,7 +10,7 @@ import Logo from '../../images/destination.png'
 
 
 
-const PostForm = () => {
+const PostForm = (hide) => {
 
     const [addPost, { error }] = useMutation(ADD_POST, {refetchQueries:[QUERY_POSTS]},{
         update(cache, { data: { addPost } }) {
@@ -158,11 +158,11 @@ const PostForm = () => {
        className="form-input col-12 col-md-9"
        onChange={handleChange5}
       ></textarea>
-      <div className="btn-submit-cont">
-      <button className="btn-submit col-12 col-md-3" type="submit">
+      <div onClick={hide.hide} className="btn-submit-cont">
+      <button onClick={handleFormSubmit} className="btn-submit col-12 col-md-3" type="submit">
           Submit
         </button>
-        <button className="btn-close col-12 col-md-3">
+        <button onClick={hide.hide} className="btn-close col-12 col-md-3">
           Close
         </button>
         </div>

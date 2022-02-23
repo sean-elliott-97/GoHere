@@ -98,7 +98,7 @@ const PostList = ({ posts, trips, title, userParam}) => {
   };
 
   
-
+const userParameters = userParam && userParam.userParam;
 
   return (
     <div>
@@ -126,12 +126,15 @@ const PostList = ({ posts, trips, title, userParam}) => {
             <p><span>points of interest: </span>{post.pointsOfInterest}</p>
             <p><span>transportation: </span>{post.transport}</p>
             <p><span>summary: </span>{post.extra}</p>
+            
                 </Link>
+
+                
                 <div className="btn-cont-list">
                 <p className="mb-0">
                 <Link className="link-p" to={`/post/${post._id}`}>Reply:</Link>{post.replyCount} 
                 </p>
-                {!loggedIn && !loading && !userData(post._id)  ? (
+                { !loading && !userData(post._id) ? (
                 <Link
                   className="pre-heart"
                   onClick={() => {
@@ -142,20 +145,16 @@ const PostList = ({ posts, trips, title, userParam}) => {
                 <img className="pre-heart" src={Pre} />
                 </Link>
               ) : (
+                <>
               <img className="post-heart" src={Post} />
-                
+              
+                </>
               )}
                 
                 
+                
                   
-                <button
-                className="btn-delete"
-                  onClick={() => {
-                    handleRemovePost(post);
-                  }}
-                >
-                  Remove Post
-                </button>
+                
                 
               </div>
                

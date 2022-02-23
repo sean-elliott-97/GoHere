@@ -42,7 +42,9 @@ const Home = () => {
   
  
   const [showForm, setShowForm] = React.useState(false)
-  const onClick = () => setShowForm(true)
+  const show = () => setShowForm(true)
+  const hide = () => setShowForm(false)
+  
   
  
   
@@ -77,7 +79,7 @@ const Home = () => {
       <div className="col-12 mb-3">
 
    
-         { showForm ? <PostForm /> : <button onClick={onClick} type="button" class="submit-green  btn-success">New Post</button>  }
+         { showForm ? <PostForm hide={hide}/> : <button onClick={show} type="button" class="submit-green  btn-success">New Post</button>  }
         
       </div>
     )}
